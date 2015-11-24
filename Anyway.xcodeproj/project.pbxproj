@@ -16,6 +16,7 @@
 		3097F9B41B959CDA0037FFF6 /* MarkerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097F9B31B959CDA0037FFF6 /* MarkerViews.swift */; };
 		309DD0461BFA464100AF80D1 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309DD0451BFA464100AF80D1 /* Utilities.swift */; };
 		30AF036D1A9BC663008B7889 /* AnnotationCoordinateUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 30AF036C1A9BC663008B7889 /* AnnotationCoordinateUtility.m */; };
+		30B98D491C038EBA00FBCA37 /* DetailCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B98D481C038EBA00FBCA37 /* DetailCells.swift */; };
 		30BB76821AEE938600CB1EBD /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BB76811AEE938600CB1EBD /* InfoViewController.swift */; };
 		30BB76841AEE9FBD00CB1EBD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BB76831AEE9FBD00CB1EBD /* DetailViewController.swift */; };
 		30BE3E321B7918C90092CEAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE3E311B7918C90092CEAB /* Constants.swift */; };
@@ -71,6 +72,7 @@
 		30AF03671A9BC62C008B7889 /* Anyway-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Anyway-Bridging-Header.h"; sourceTree = "<group>"; };
 		30AF036B1A9BC663008B7889 /* AnnotationCoordinateUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationCoordinateUtility.h; sourceTree = "<group>"; };
 		30AF036C1A9BC663008B7889 /* AnnotationCoordinateUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationCoordinateUtility.m; sourceTree = "<group>"; };
+		30B98D481C038EBA00FBCA37 /* DetailCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCells.swift; sourceTree = "<group>"; };
 		30BA64A41BFA505900700C72 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		30BA64A61BFA505C00700C72 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		30BB76811AEE938600CB1EBD /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -177,7 +179,7 @@
 				30367EA11A9D0ACC00B16DA1 /* Views */,
 				30D6E5B31A92639500337FDB /* ViewController.swift */,
 				30BB76811AEE938600CB1EBD /* InfoViewController.swift */,
-				30BB76831AEE9FBD00CB1EBD /* DetailViewController.swift */,
+				30B98D471C038EA700FBCA37 /* Detail */,
 				30CC256E1B4B11A800BE8FE9 /* AccidentsViewController.swift */,
 			);
 			name = UI;
@@ -218,6 +220,15 @@
 				30AF036C1A9BC663008B7889 /* AnnotationCoordinateUtility.m */,
 			);
 			name = ObjC;
+			sourceTree = "<group>";
+		};
+		30B98D471C038EA700FBCA37 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				30BB76831AEE9FBD00CB1EBD /* DetailViewController.swift */,
+				30B98D481C038EBA00FBCA37 /* DetailCells.swift */,
+			);
+			name = Detail;
 			sourceTree = "<group>";
 		};
 		30BEB44C1A9D1A7A005F3205 /* JGProgressHUD */ = {
@@ -473,6 +484,7 @@
 				30ECD1821ADC19D800A62052 /* SwiftyUserDefaults.swift in Sources */,
 				30BB76841AEE9FBD00CB1EBD /* DetailViewController.swift in Sources */,
 				30BEB4671A9D1A7A005F3205 /* JGProgressHUDFadeZoomAnimation.m in Sources */,
+				30B98D491C038EBA00FBCA37 /* DetailCells.swift in Sources */,
 				30BB76821AEE938600CB1EBD /* InfoViewController.swift in Sources */,
 				30DAA09C1AC201D7001F67D2 /* RMDateSelectionViewController.m in Sources */,
 				30BEB4681A9D1A7A005F3205 /* JGProgressHUDIndeterminateIndicatorView.m in Sources */,

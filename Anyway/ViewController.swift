@@ -447,7 +447,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
         if shouldJumpToStartLocation {
             let user = map.userLocation
-            let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             let mapRegion = MKCoordinateRegion(center: user.coordinate, span: span)
             map.setRegion(mapRegion, animated: true)
         }
@@ -455,7 +455,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
     
     func mapView(mapView: MKMapView, didFailToLocateUserWithError error: NSError) {
         if shouldJumpToStartLocation {
-            let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             let mapRegion = MKCoordinateRegion(center: fallbackStartLocationCoordinate, span: span)
             map.setRegion(mapRegion, animated: true)
         }

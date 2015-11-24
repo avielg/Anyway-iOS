@@ -1,13 +1,16 @@
 PODS:
   - Alamofire (3.1.2)
+  - SVWebViewController (HEAD based on 1.0)
   - SwiftyJSON (2.3.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - SVWebViewController (HEAD)
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
+  SVWebViewController: c36dda7326e81fcae0abf5d02bf7bbf7e41be901
   SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
 
 COCOAPODS: 0.39.0

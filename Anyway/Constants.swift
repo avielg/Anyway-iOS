@@ -68,3 +68,48 @@ func accidentMinorTypeToType(type: Int) -> AccidentType? {
     default: return nil
     }
 }
+
+/**
+ Accident Providing Organization
+ 
+ - CBS:    הלמ״ס
+            raw can be 1 or 3
+ - Ihud:   איחוד והצלה
+             raw can be 2
+ 
+ */
+enum Provider {
+    case CBS
+    case Ihud
+    
+    init?(_ raw: Int) {
+        switch raw {
+        case 1,3: self = CBS
+        case 2: self = Ihud
+        default: return nil
+        }
+    }
+    
+    var name: String {
+        switch self {
+        case .CBS: return "הלשכה המרכזית לסטטיסטיקה"
+        case .Ihud: return "איחוד הצלה"
+        }
+    }
+    
+    var logo: String {
+        switch self {
+        case .CBS: return "cbs"
+        case .Ihud: return "ihud"
+        }
+    }
+    
+    var url: String {
+        switch self {
+        case .CBS: return "http://www.cbs.gov.il"
+        case .Ihud: return "http://www.1221.org.il"
+        }
+    }
+    
+}
+

@@ -7,13 +7,20 @@
 //
 
 import UIKit
+import SVWebViewController
 
-class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, WebPresentationDelegate {
 
     static let segueIdentifier = "show accident detail"
     
     var detailData: Marker?
 
+    @IBOutlet weak var tableView: UITableView! {
+        didSet{
+            tableView.estimatedRowHeight =  150
+            tableView.rowHeight = UITableViewAutomaticDimension
+        }
+    }
     @IBOutlet weak var tableTopEdgeConstraint: NSLayoutConstraint!
     @IBOutlet weak var btnClose: UIButton!
     
@@ -40,60 +47,112 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    
+    //MAR: - WebPresentationDelegate
+    func shouldPresent(address: String) {
+        let webView = SVWebViewController(address: address)
+        presentViewController(webView, animated: true, completion: nil)
+    }
+    
     //MARK: - Table View
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+    var openSection: Int = 0
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 7
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch (section, openSection) {
+            
+            // top cell
+        case (0, _): return 1
+            
+            // info cells: expanded
+        case (1, 1): return 4
+        case (2, 2): return 10
+        case (3, 3): return 3
+        case (4, 4): return 2 //FIXME: number of people in accident...
+        case (5, 5): return 2 //FIXME: number of cars in accident...
+        case (6, 6): return 2
+            
+            // collapsed...
+        case (1..<7, _): return 1
+            
+            // fallback
+        default: return 0
+        }
+    }
+    
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("detail cell", forIndexPath: indexPath) 
-        cell.textLabel?.text = title(atIndex: indexPath.row)
-        cell.detailTextLabel?.text = info(atIndex: indexPath.row)
-        return cell
-    }
-    
-    func title(atIndex index: Int) -> String {
-        switch index {
-        case 0: return "כותרת"
-        case 1: return "מיקום"
-        case 2: return "כתובת"
-        case 3: return "תיאור"
-        case 4: return "כותרת תאונה"
-        case 5: return "תאריך"
-        case 6: return "עוקבים"
-        case 7: return "עוקב"
-        case 8: return "ID"
-        case 9: return "רמת דיוק"
-        case 10: return "חומרה"
-        case 11: return "תת סוג"
-        case 12: return "סוג"
-        case 13: return "משתמש"
-        default: return ""
+        
+        let identifier: String
+        switch (indexPath.section, indexPath.row) {
+            case (0, 0): identifier = DetailCellTop.dequeueId
+            case (_, 0): identifier = DetailCellHeader.dequeueId
+            default: identifier = DetailCellInfo.dequeueId
         }
-    }
-    
-    func info(atIndex index: Int) -> String {
-        if let data = detailData {
-            switch index {
-            case 0: return data.title ?? ""
-            case 1: return data.coordinate.humanDescription
-            case 2: return data.address
-            case 3: return data.descriptionContent
-            case 4: return data.titleAccident
-            case 5: return data.created.shortDescription
-            case 6: return "\(data.followers.count)"
-            case 7: return data.following ? "כן" : "לא"
-            case 8: return "\(data.id)"
-            case 9: return data.localizedAccuracy
-            case 10: return data.localizedSeverity
-            case 11: return data.localizedSubtype
-            case 12: return "\(data.type)"
-            case 13: return data.user
-            default: return ""
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! DetailCell
+        cell.indexPath = indexPath
+        cell.marker = detailData
+        cell.setInfo(cell.marker)
+        
+        if let top = cell as? DetailCellTop {
+            top.webDelegate = self
+        }
+        
+        if cell is DetailCellHeader {
+            if indexPath.section == openSection {
+                cell.contentView.backgroundColor = UIColor.whiteColor()
+            } else {
+                cell.contentView.backgroundColor = UIColor(red:0.858, green:0.858, blue:0.858, alpha:0.197)
             }
         }
-        return ""
+        return cell
+        
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        tableView.beginUpdates()
+        
+        if openSection == indexPath.section {
+            
+            // Only collapse
+            openSection = 0
+            tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Automatic)
+            
+        } else {
+            
+            // Collapse old + Expand new
+//            let higher = max(openSection, indexPath.section)
+//            let lower = min(openSection, indexPath.section)
+            
+            let animation: UITableViewRowAnimation
+            if openSection == 0 { animation = .Automatic }
+            else if openSection > indexPath.section { animation = .Bottom }
+            else { animation = .Top }
+            
+            if openSection != 0 {
+                //collapse
+                tableView.reloadSections(NSIndexSet(index: openSection), withRowAnimation: .None)
+            }
+            if indexPath.section != 0 {
+                openSection = indexPath.section
+                tableView.reloadSections(NSIndexSet(index: openSection), withRowAnimation: .Automatic)
+            }
+            
+        }
+        
+        
+        
+        tableView.endUpdates()
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
 
 }

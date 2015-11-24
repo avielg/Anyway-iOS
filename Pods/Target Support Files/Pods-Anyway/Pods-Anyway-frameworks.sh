@@ -85,9 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Anyway/Alamofire.framework"
+  install_framework "Pods-Anyway/SVWebViewController.framework"
   install_framework "Pods-Anyway/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Anyway/Alamofire.framework"
+  install_framework "Pods-Anyway/SVWebViewController.framework"
   install_framework "Pods-Anyway/SwiftyJSON.framework"
 fi

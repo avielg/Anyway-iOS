@@ -96,7 +96,7 @@ class Marker : NSObject, MarkerAnnotation {
     var one_lane: Int = -1
     var speed_limit: Int = -1
     var weather: Int = -1
-    var provider_code: String = ""
+    var provider_code: Int = -1
     var road_object: Int = -1
     var didnt_cross: Int = -1
     var object_distance: Int = -1

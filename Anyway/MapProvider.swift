@@ -191,7 +191,7 @@ class Network {
                 mView.one_lane = marker["one_lane"].intValue
                 mView.speed_limit = marker["speed_limit"].intValue
                 mView.weather = marker["weather"].intValue
-                mView.provider_code = marker["secondaryStreet"].stringValue
+                mView.provider_code = marker["provider_code"].intValue
                 mView.road_object = marker["road_object"].intValue
                 mView.didnt_cross = marker["didnt_cross"].intValue
                 mView.object_distance = marker["object_distance"].intValue

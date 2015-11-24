@@ -6,9 +6,5 @@ use_frameworks!
 target 'Anyway' do
 	pod 'Alamofire', '~> 3.0'
 	pod 'SwiftyJSON'
+    pod 'SVWebViewController', :head
 end
-
-target 'AnywayTests' do
-
-end
-
