@@ -81,6 +81,13 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
         map.minimumAnnotationCountPerCluster = 4
         
         filter.onChange = { self.updateInfoIfPossible(self.map, filterChanged:true) }
+        
+        // Always present master and detail side-by-side
+        splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
+        
+        // Set the master (map) relative side
+        splitViewController?.minimumPrimaryColumnWidth = view.frame.width * 0.6
+        splitViewController?.maximumPrimaryColumnWidth = view.frame.width * 0.6
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -107,42 +114,6 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
             
             constraintTableViewHeight.constant = rowHeight * rows + headerHeight * sections
             constraintTableViewBottom.constant = -constraintTableViewHeight.constant
-        }
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == DetailViewController.segueIdentifier {
-            guard let
-                dest = segue.destinationViewController as? DetailViewController,
-                markerView = sender as? MarkerView,
-                marker = markerView.annotation as? Marker
-            else {return}
-            
-            dest.detailData = marker
-        }
-        else if segue.identifier == AccidentsViewController.segueId {
-            if
-                let nav = segue.destinationViewController as? UINavigationController,
-                    dest = nav.viewControllers.first as? AccidentsViewController
-            {
-                
-                // get map annotations as MarkerAnnotation
-                let annots = map.annotations.flatMap{ ($0 as? MarkerAnnotation) ?? nil }
-                
-                // break any MarkerGroup and create Marker array
-                var markers = [Marker]()
-                for annot in annots {
-                    if let group = annot as? MarkerGroup {
-                        markers += group.markers
-                    }
-                    if let marker = annot as? Marker {
-                        markers.append(marker)
-                    }
-                }
-                
-                
-                dest.dataSource = markers.sort{$0.created.compare($1.created) == .OrderedDescending}
-            }
         }
     }
     
@@ -184,16 +155,26 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
         hud.showInView(view)
         
         print("Getting some...")
-        network.getAnnotations(map.edgePoints(), filter: filter) { marks, count in
+        network.getAnnotations(map.edgePoints(), filter: filter) { [weak self] marks, count in
             print("finished parsing")
-            self.map.annotationsToIgnore = nil
-            self.map.removeAnnotations(self.map.annotations)
-            self.map.addAnnotations(marks)
-//            self.detailLabel.text = "מציג \(count) תאונות"
-            self.detailLabel.hidden = true
-            self.btnAccidents.title = "מציג \(count) תאונות"
-            self.gettingInfo = false
-            self.hud.dismiss()
+            guard let s = self else {return}
+            
+            s.map.annotationsToIgnore = nil
+            s.map.removeAnnotations(s.map.annotations)
+            s.map.addAnnotations(marks)
+            s.detailLabel.hidden = true
+            s.btnAccidents.title = "מציג \(count) תאונות"
+            s.gettingInfo = false
+            
+            if let
+                nav = s.splitViewController?.viewControllers.safeRetrieveElement(1) as? UINavigationController,
+                detail = nav.viewControllers.first as? AccidentsViewController
+            {
+                s.populate(accidentsViewController: detail)
+                detail.refreshUI()
+            }
+            
+            s.hud.dismiss()
         }
 
     }
@@ -205,8 +186,39 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
     
     @IBAction func actionAccidents(sender: UIBarButtonItem) {
         
+        // Create the accidents VC from the current storyboard
+        let destNav = storyboard?.instantiateViewControllerWithIdentifier(AccidentsViewController.storyboardId) as! UINavigationController
+        
+        guard let dest = destNav.topViewController as? AccidentsViewController
+            else {return}
+        
+        
+        //Populate the accidents VC with data
+        populate(accidentsViewController: dest)
+        
+        // Show it
+        showDetailViewController(destNav, sender: self)
+        
     }
     
+    func populate(accidentsViewController dest: AccidentsViewController) {
+        // get map annotations as MarkerAnnotation
+        let annots = map.annotations.flatMap{ ($0 as? MarkerAnnotation) ?? nil }
+        
+        // break any MarkerGroup and create Marker array
+        var markers = [Marker]()
+        for annot in annots {
+            if let group = annot as? MarkerGroup {
+                markers += group.markers
+            }
+            if let marker = annot as? Marker {
+                markers.append(marker)
+            }
+        }
+        
+        
+        dest.dataSource = markers.sort{$0.created.compare($1.created) == .OrderedDescending}
+    }
     
     enum TableViewType { case Closed, Filter, Accidents }
     
@@ -348,11 +360,9 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
     
     func mapViewRegionDidChangeFromUserInteraction() -> Bool {
         if let view = map.subviews.first {
-            for gestureObj in view.gestureRecognizers ?? [] {
-                if let gesture = gestureObj as? UIGestureRecognizer {
-                    if gesture.state == .Began || gesture.state == .Ended {
-                        return true
-                    }
+            for gesture in view.gestureRecognizers ?? [] {
+                if gesture.state == .Began || gesture.state == .Ended {
+                    return true
                 }
             }
         }
@@ -362,7 +372,13 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         map.clusteringEnabled = Int(mapView.edgesDistance()) > MIN_DIST_CLUSTER_DISABLE
         
-        if CLLocation.distance(from: lastRegion.center, to: mapView.region.center) > 50 {
+        printFunc()
+        print("old region: \(lastRegion.center) | new: \(mapView.region.center)")
+        
+        let distance = CLLocation.distance(from: lastRegion.center, to: mapView.region.center)
+        print("distance: \(distance)")
+        
+        if distance > 50 {
             updateInfoIfPossible(mapView, filterChanged:false)
         }
         lastRegion = mapView.region
@@ -380,7 +396,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
         }
     }
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if let cluster = annotation as? OCAnnotation {
             let pin = ClusterView(annotation: cluster, reuseIdentifier: clusterReuseIdentifierDefault)
             pin.label?.text = "\(cluster.annotationsInCluster().count)"
@@ -409,7 +425,24 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let markerView = view as? MarkerView {
-            performSegueWithIdentifier(DetailViewController.segueIdentifier, sender: markerView)
+            
+            guard let dest = storyboard?.instantiateViewControllerWithIdentifier(DetailViewController.storyboardId) as? DetailViewController
+                else {return}
+            
+            guard let marker = markerView.annotation as? Marker
+                else {return}
+            
+            dest.detailData = marker
+            
+            if let
+                nav = splitViewController?.viewControllers.safeRetrieveElement(1) as? UINavigationController,
+                first = nav.viewControllers.first
+            {
+                nav.setViewControllers([first, dest], animated: true)
+            } else {
+                showDetailViewController(dest, sender: self)
+            }
+            
         }
     }
     
@@ -446,6 +479,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
         if shouldJumpToStartLocation {
+            shouldJumpToStartLocation = false
             let user = map.userLocation
             let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             let mapRegion = MKCoordinateRegion(center: user.coordinate, span: span)
@@ -455,6 +489,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
     
     func mapView(mapView: MKMapView, didFailToLocateUserWithError error: NSError) {
         if shouldJumpToStartLocation {
+            shouldJumpToStartLocation = false
             let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             let mapRegion = MKCoordinateRegion(center: fallbackStartLocationCoordinate, span: span)
             map.setRegion(mapRegion, animated: true)

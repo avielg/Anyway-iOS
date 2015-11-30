@@ -48,6 +48,42 @@ class Network {
         if let current = currentRequest { current.cancel() }
     }
     
+    func getMarkerDetails(markerId id: Int, result:([Person], [Vehicle])->Void) {
+        
+        let domain = "http://www.anyway.co.il/markers/"
+        let url = "\(domain)\(id)"
+        
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
+        let response = { (req: NSURLRequest, response: NSHTTPURLResponse?, json: JSON, err: NSError?) -> Void in
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            print("getMarkerDetails response from server ended")
+            
+            if err == nil {
+                var persons = [Person]()
+                var vehicles = [Vehicle]()
+                
+                for obj in json.array ?? [] {
+                    if obj["sex"].number != nil {
+                        persons.append(Person(json: obj))
+                    } else {
+                        vehicles.append(Vehicle(json: obj))
+                    }
+                }
+                
+                result(persons, vehicles)
+                
+            } else {
+                print("Error! \(err)")
+                result([], [])
+            }
+        }
+        
+        
+        currentRequest = Alamofire.request(.GET, url, parameters: nil, encoding: .URL, headers: nil).responseSwiftyJSON(response)
+        
+    }
+    
     func getAnnotations(edges: Edges, filter: Filter, anots: (markers: [MarkerAnnotation], totalCount: Int)->()) {
         
         let ne_lat = edges.ne.latitude // 32.158091269627874
@@ -82,7 +118,7 @@ class Network {
             "show_discussions" : 1
         ]
         
-        print("params: \(params)")
+        //print("params: \(params)")
         
         cancelRequestIfNeeded()
         
@@ -90,7 +126,7 @@ class Network {
         
         let response = { (req: NSURLRequest, response: NSHTTPURLResponse?, json: JSON, err: NSError?) -> Void in
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-            print("response from server ended")
+            print("getAnnotations response from server ended")
             
             if err == nil {
                 let markers = self.parseJson(json)
@@ -112,13 +148,15 @@ class Network {
         currentRequest = Alamofire.request(.GET, "http://www.anyway.co.il/markers", parameters: params, encoding: .URL, headers: nil)
             
             /* Raw response, for debug */
-//            .response({ (request, response, data, error) -> Void in
-//                if let string = data as? String {
-//                    println("response: ###\(string)###")
-//                } else if let errorObj = error {
-//                    println("error: \(errorObj)")
-//                } else {
-//                    println("no response AND no error")
+//            .responseString(completionHandler: { (response) -> Void in
+//                switch response.result {
+//                case .Success(let val):
+//                    if let encoded = response.data.map({ String(data: $0, encoding: NSUTF8StringEncoding) }) {
+//                        println("response: ###\(encoded)###") //solve hebrew string bug...
+//                    } else {
+//                        println("response: ###\(val)###")
+//                    }
+//                case .Failure(let err): println("error: \(err)")
 //                }
 //            })
             
@@ -135,7 +173,7 @@ class Network {
         var markerAnnotations = [MarkerAnnotation]()
         
         let annotsDict = AnnotationCoordinateUtility.groupAnnotationsByLocationValue(markers) as! [NSValue:[Marker]]
-        for (coordVal, annotsAtLocation) in annotsDict {
+        for (_ /* coordVal */, annotsAtLocation) in annotsDict {
             if annotsAtLocation.count > 1 {
                 let group = MarkerGroup(markers: annotsAtLocation)!
                 //print("Added markerGroup of \(group.markers.count) markers at \(coordVal)")
@@ -152,7 +190,7 @@ class Network {
         Parsing server JSON response to [Marker], ignoring coliding markers
     */
     private func parseJson(json: JSON) -> [Marker] {
-        
+
         var annots = [Marker]()
         
         if let markers = json["markers"].array {

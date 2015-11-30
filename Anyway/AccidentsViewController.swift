@@ -10,20 +10,36 @@ import UIKit
 
 class AccidentsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    static let segueId = "show accidents"
-    
+    static let storyboardId = "all acidents storyboard id"
+
     var dataSource = [Marker]()
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var closeBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.titleView = UIImageView(image: UIImage(named: "logo_rectangle")!)
+        
+        if splitViewController?.collapsed ?? true {
+            // show the close button
+            closeBarButton.enabled = true
+            closeBarButton.tintColor = nil
+        } else {
+            // hide
+            closeBarButton.enabled = false
+            closeBarButton.tintColor = UIColor.clearColor()
+        }
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         tableView.deselectRowIfNeeded()
+    }
+    
+    func refreshUI() {
+        tableView.reloadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -12,6 +12,10 @@
 		30367E9D1A9D006400B16DA1 /* OCDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 30367E971A9D006400B16DA1 /* OCDistance.m */; };
 		30367E9E1A9D006400B16DA1 /* OCMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30367E9A1A9D006400B16DA1 /* OCMapView.m */; };
 		30367EA31A9D0AEB00B16DA1 /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30367EA21A9D0AEB00B16DA1 /* InsetLabel.swift */; };
+		30568A8F1C0CDA5C00471D83 /* MarkerGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30568A8E1C0CDA5B00471D83 /* MarkerGroup.swift */; };
+		30568A931C0CDAB500471D83 /* Marker+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30568A921C0CDAB500471D83 /* Marker+General.swift */; };
+		30568A951C0CDAF200471D83 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30568A941C0CDAF200471D83 /* Person.swift */; };
+		30568A981C0CDF4C00471D83 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30568A971C0CDF4C00471D83 /* Vehicle.swift */; };
 		30667BAA1A92698900853125 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30667BA91A92698900853125 /* Marker.swift */; };
 		3097F9B41B959CDA0037FFF6 /* MarkerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097F9B31B959CDA0037FFF6 /* MarkerViews.swift */; };
 		309DD0461BFA464100AF80D1 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309DD0451BFA464100AF80D1 /* Utilities.swift */; };
@@ -64,6 +68,10 @@
 		30367E991A9D006400B16DA1 /* OCMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMapView.h; sourceTree = "<group>"; };
 		30367E9A1A9D006400B16DA1 /* OCMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMapView.m; sourceTree = "<group>"; };
 		30367EA21A9D0AEB00B16DA1 /* InsetLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
+		30568A8E1C0CDA5B00471D83 /* MarkerGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerGroup.swift; sourceTree = "<group>"; };
+		30568A921C0CDAB500471D83 /* Marker+General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Marker+General.swift"; sourceTree = "<group>"; };
+		30568A941C0CDAF200471D83 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		30568A971C0CDF4C00471D83 /* Vehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		305E9AEF1BFA4E08003858F3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		305E9AF11BFA4E0C003858F3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		30667BA91A92698900853125 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
@@ -190,8 +198,7 @@
 			children = (
 				30D6E5B11A92639500337FDB /* AppDelegate.swift */,
 				30D6E5D11A92642000337FDB /* MapProvider.swift */,
-				30667BA91A92698900853125 /* Marker.swift */,
-				3097F9B31B959CDA0037FFF6 /* MarkerViews.swift */,
+				30568A961C0CDAFD00471D83 /* Model */,
 				30BE3E311B7918C90092CEAB /* Constants.swift */,
 				30CDE5161BFA690A00BBC183 /* Localization.swift */,
 				30DAA0971AC1F95D001F67D2 /* Extensions.swift */,
@@ -207,6 +214,27 @@
 				30CCFDF21AC9E4F90000FCA2 /* FilterCellTableViewCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		30568A911C0CDAA700471D83 /* Marker */ = {
+			isa = PBXGroup;
+			children = (
+				30568A921C0CDAB500471D83 /* Marker+General.swift */,
+				30667BA91A92698900853125 /* Marker.swift */,
+				30568A8E1C0CDA5B00471D83 /* MarkerGroup.swift */,
+				3097F9B31B959CDA0037FFF6 /* MarkerViews.swift */,
+			);
+			name = Marker;
+			sourceTree = "<group>";
+		};
+		30568A961C0CDAFD00471D83 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				30568A911C0CDAA700471D83 /* Marker */,
+				30568A941C0CDAF200471D83 /* Person.swift */,
+				30568A971C0CDF4C00471D83 /* Vehicle.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		30AF03661A9BC620008B7889 /* ObjC */ = {
@@ -479,7 +507,9 @@
 				30BEB4691A9D1A7A005F3205 /* JGProgressHUDIndicatorView.m in Sources */,
 				30BEB46A1A9D1A7A005F3205 /* JGProgressHUDPieIndicatorView.m in Sources */,
 				30667BAA1A92698900853125 /* Marker.swift in Sources */,
+				30568A8F1C0CDA5C00471D83 /* MarkerGroup.swift in Sources */,
 				30BE3E321B7918C90092CEAB /* Constants.swift in Sources */,
+				30568A951C0CDAF200471D83 /* Person.swift in Sources */,
 				30CCFDF31AC9E4F90000FCA2 /* FilterCellTableViewCell.swift in Sources */,
 				30ECD1821ADC19D800A62052 /* SwiftyUserDefaults.swift in Sources */,
 				30BB76841AEE9FBD00CB1EBD /* DetailViewController.swift in Sources */,
@@ -492,6 +522,7 @@
 				30D6E5D61A92647300337FDB /* PrintlnMagic.swift in Sources */,
 				30CC256F1B4B11A800BE8FE9 /* AccidentsViewController.swift in Sources */,
 				30CDE5151BFA555500BBC183 /* Alamofire-SwiftyJSON.swift in Sources */,
+				30568A981C0CDF4C00471D83 /* Vehicle.swift in Sources */,
 				30367E9E1A9D006400B16DA1 /* OCMapView.m in Sources */,
 				30BEB4631A9D1A7A005F3205 /* JGProgressHUD.m in Sources */,
 				30BEB4641A9D1A7A005F3205 /* JGProgressHUDAnimation.m in Sources */,
@@ -501,6 +532,7 @@
 				30D6E5B41A92639500337FDB /* ViewController.swift in Sources */,
 				30BEB4651A9D1A7A005F3205 /* JGProgressHUDErrorIndicatorView.m in Sources */,
 				30367E9C1A9D006400B16DA1 /* OCAnnotation.m in Sources */,
+				30568A931C0CDAB500471D83 /* Marker+General.swift in Sources */,
 				30DAA0981AC1F95D001F67D2 /* Extensions.swift in Sources */,
 				30BEB46B1A9D1A7A005F3205 /* JGProgressHUDRingIndicatorView.m in Sources */,
 				30BEB46C1A9D1A7A005F3205 /* JGProgressHUDSuccessIndicatorView.m in Sources */,
@@ -552,6 +584,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -561,6 +594,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

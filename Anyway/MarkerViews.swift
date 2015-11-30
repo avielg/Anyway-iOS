@@ -12,6 +12,9 @@ let markerReuseIdentifierDefault = "MarkerIdentifier"
 let markerGroupReuseIdentifierDefault = "MarkerGroupIdentifier"
 let clusterReuseIdentifierDefault = "ClusterIdentifier"
 
+
+//MARK: - Views
+
 class MarkerView: MKPinAnnotationView {
     
     convenience init(marker: Marker, reuseIdentifier: String! = markerReuseIdentifierDefault) {

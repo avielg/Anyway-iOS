@@ -14,7 +14,11 @@ protocol MarkerPresenter {
 }
 
 class DetailCell: UITableViewCell, MarkerPresenter {
+    
     var marker: Marker?
+    var vehicles = [Vehicle]()
+    var persons = [Person]()
+    
     var indexPath: NSIndexPath?
     
     func setInfo(marker: Marker?) {
@@ -87,8 +91,8 @@ class DetailCellInfo: DetailCell {
     override func setInfo(marker: Marker?) {
         guard let path = indexPath else {return}
         
-        labelTitle.text = StaticData.title(atIndex: path.row)
-        labelInfo.text = StaticData.info(marker, atIndex: path.row)
+        labelTitle.text = StaticData.title(atIndex: path, persons: persons, vehicles: vehicles)
+        labelInfo.text = StaticData.info(marker, atIndex: path, persons: persons, vehicles: vehicles)
     }
     
 }
@@ -112,44 +116,111 @@ private struct StaticData {
         }
     }
     
-    static func title(atIndex index: Int) -> String {
-        switch index {
-        case 1: return "כותרת"
-        case 2: return "כתובת"
-        case 3: return "תיאור"
-        case 4: return "כותרת תאונה"
-        case 5: return "תאריך"
-        case 6: return "עוקבים"
-        case 7: return "עוקב"
-        case 8: return "ID"
-        case 9: return "רמת דיוק"
-        case 10: return "חומרה"
-        case 11: return "תת סוג"
-        case 12: return "סוג"
-        case 13: return "משתמש"
-        case 14: return "מיקום"
+    static func title(atIndex indexPath: NSIndexPath, persons: [Person], vehicles: [Vehicle]) -> String {
+        switch (indexPath.section, indexPath.row) {
+            case (1, 0): return "מספר סידורי"
+            case (1, 1): return "סוג תיק"
+            case (1, 2): return "חומרת תאונה"
+            case (1, 3): return "סוג תאונה"
+            
+            case (2, 0): return "סוג דרך"
+            case (2, 1): return "צורת דרך"
+            
+            case (3, 0): return "תאריך"
+            case (3, 1): return "סוג יום"
+            case (3, 2): return "" // address (no title on website design)
+            
+            case (4, let i): return fieldName(i, rawInfos: persons)
+            case (5, let i): return fieldName(i, rawInfos: vehicles)
+            
+            case (6, 0): return "עיגון"
+            case (6, 1): return "יחידה"
+
+//        case 1: return "כותרת"
+//        case 2: return "כתובת"
+//        case 3: return "תיאור"
+//        case 4: return "כותרת תאונה"
+//        case 5: return "תאריך"
+//        case 6: return "עוקבים"
+//        case 7: return "עוקב"
+//        case 8: return "ID"
+//        case 9: return "רמת דיוק"
+//        case 10: return "חומרה"
+//        case 11: return "תת סוג"
+//        case 12: return "סוג"
+//        case 13: return "משתמש"
+//        case 14: return "מיקום"
         default: return ""
         }
     }
     
-    static func info(marker: Marker?, atIndex index: Int) -> String {
+    static func fieldName<T: RawInfo>(row: Int, rawInfos: [T]) -> String {
+        guard let
+            info = infoData(row, rawInfos: rawInfos),
+            field = fields[info.0]
+        else { return "UNKNOWN FIELD" }
+        
+        return field
+    }
+    
+    static func fieldValue<T: RawInfo>(row: Int, rawInfos: [T]) -> String {
+        guard let
+            info = infoData(row, rawInfos: rawInfos)
+        else { return "UNKNOWN FIELD" }
+        
+        return info.1
+    }
+    
+    static func infoData<T: RawInfo>(var row: Int, rawInfos: [T]) -> (String, String)? {
+        
+        row-- // row 0 is the "header" cell, so we being from 1 instead 0...
+        
+        for p in rawInfos {
+            if row < p.info.count {
+                return p.info[row]
+            }
+            row -= p.info.count
+        }
+        return nil
+    }
+    
+    static func info(marker: Marker?, atIndex indexPath: NSIndexPath, persons: [Person], vehicles: [Vehicle]) -> String {
         guard let data = marker else {return ""}
         
-        switch index {
-        case 1: return data.title ?? ""
-        case 2: return data.address
-        case 3: return data.descriptionContent
-        case 4: return data.titleAccident
-        case 5: return data.created.shortDescription
-        case 6: return "\(data.followers.count)"
-        case 7: return data.following ? "כן" : "לא"
-        case 8: return "\(data.id)"
-        case 9: return data.localizedAccuracy
-        case 10: return data.localizedSeverity
-        case 11: return data.localizedSubtype
-        case 12: return "\(data.type)"
-        case 13: return data.user
-        case 14: return data.coordinate.humanDescription
+        switch (indexPath.section, indexPath.row) {
+            
+        case (1, 0): return "\(data.id)"
+        case (1, 1): return "סוג תיק"
+        case (1, 2): return data.localizedSeverity
+        case (1, 3): return data.localizedSubtype
+            
+        case (2, 0): return localization["SUG_DEREH"]?["\(data.roadType)"] ?? ""
+        case (2, 1): return localization["ZURAT_DEREH"]?["\(data.road_surface)"] ?? ""
+            
+        case (3, 0): return "\(data.created.longDate), \(data.created.shortTime)"
+        case (3, 1): return localization["SUG_YOM"]?["\(data.dayType)"] ?? ""
+        case (3, 2): return data.address
+            
+        case (4, let i): return fieldValue(i, rawInfos: persons)
+        case (5, let i): return fieldValue(i, rawInfos: vehicles)
+            
+        case (6, 0): return localization["STATUS_IGUN"]?["\(data.intactness)"] ?? "" //TODO: is right param?
+        case (6, 1): return localization["YEHIDA"]?["\(data.unit)"] ?? "" 
+            
+//        case 1: return data.title ?? ""
+//        case 2: return data.address
+//        case 3: return data.descriptionContent
+//        case 4: return data.titleAccident
+//        case 5: return data.created.shortDescription
+//        case 6: return "\(data.followers.count)"
+//        case 7: return data.following ? "כן" : "לא"
+//        case 8: return "\(data.id)"
+//        case 9: return data.localizedAccuracy
+//        case 10: return data.localizedSeverity
+//        case 11: return data.localizedSubtype
+//        case 12: return "\(data.type)"
+//        case 13: return data.user
+//        case 14: return data.coordinate.humanDescription
         default: return ""
         }
     }
