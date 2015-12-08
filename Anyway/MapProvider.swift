@@ -65,9 +65,9 @@ class Network {
                 
                 for obj in json.array ?? [] {
                     if obj["sex"].number != nil {
-                        persons.append(Person(json: obj))
+                        persons.append(Person(json: obj, index: persons.count + 1))
                     } else {
-                        vehicles.append(Vehicle(json: obj))
+                        vehicles.append(Vehicle(json: obj, index: vehicles.count + 1))
                     }
                 }
                 

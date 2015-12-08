@@ -13,7 +13,7 @@ struct Person: RawInfo {
     
     let info: [(String, String)] //(title key, content
     
-    init(json: JSON) {
+    init(json: JSON, index: Int) {
         
         // Constant keys to create the object
         let rawInfo = [
@@ -33,7 +33,7 @@ struct Person: RawInfo {
         // Build the actuall info:
         // For values that are string > leave as is
         // For number > parse to the actual value
-        let finalInfo = rawInfo.map { (local, jsonKey) in
+        let finalInfo = [("INNER_PERSON_TITLE", "\(index)")] + rawInfo.map { (local, jsonKey) in
                 
                 let value: String
                 

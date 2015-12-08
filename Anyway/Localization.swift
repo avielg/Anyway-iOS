@@ -197,7 +197,9 @@ var localization = [
     ]
 ]
 
-var fields = [
+var staticFieldNames = [
+    "INNER_PERSON_TITLE": "תיאור נפגע",
+    "INNER_VEHICLE_TITLE": "תיאור רכב",
     "pk_teuna_fikt": "מזהה",
     "SUG_DEREH": "סוג דרך",
     "SHEM_ZOMET": "שם צומת",

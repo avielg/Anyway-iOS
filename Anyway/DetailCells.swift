@@ -157,7 +157,7 @@ private struct StaticData {
     static func fieldName<T: RawInfo>(row: Int, rawInfos: [T]) -> String {
         guard let
             info = infoData(row, rawInfos: rawInfos),
-            field = fields[info.0]
+            field = staticFieldNames[info.0]
         else { return "UNKNOWN FIELD" }
         
         return field
@@ -173,7 +173,7 @@ private struct StaticData {
     
     static func infoData<T: RawInfo>(var row: Int, rawInfos: [T]) -> (String, String)? {
         
-        row-- // row 0 is the "header" cell, so we being from 1 instead 0...
+        row-- // row 0 is the "header" cell, so we begin from 1 instead 0...
         
         for p in rawInfos {
             if row < p.info.count {
