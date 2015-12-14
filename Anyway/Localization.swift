@@ -15,6 +15,22 @@ struct Localization {
         3 : local("SUG_DEREH_3"),
         4 : local("SUG_DEREH_4")
     ]
+    var YEHIDA = [
+        11 : local("YEHIDA_11"),
+        12 : local("YEHIDA_12"),
+        14 : local("YEHIDA_14"),
+        20 : local("YEHIDA_20"),
+        33 : local("YEHIDA_33"),
+        34 : local("YEHIDA_34"),
+        36 : local("YEHIDA_36"),
+        37 : local("YEHIDA_37"),
+        38 : local("YEHIDA_38"),
+        41 : local("YEHIDA_41"),
+        43 : local("YEHIDA_43"),
+        51 : local("YEHIDA_51"),
+        52 : local("YEHIDA_52"),
+        61 : local("YEHIDA_61")
+    ]
 }
 
 var localization = [

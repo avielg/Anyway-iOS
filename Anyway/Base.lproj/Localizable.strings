@@ -28,3 +28,18 @@
 "SUG_DEREH_2" = "Urban, not a junction";
 "SUG_DEREH_3" = "Intercity junction";
 "SUG_DEREH_4" = "Intercity, not a junction";
+
+"YEHIDA_11" = "Coastal region (Haifa)";
+"YEHIDA_12" = "Galil region";
+"YEHIDA_14" = "מרחב עמקים";
+"YEHIDA_20" = "מרחב ת\"א";
+"YEHIDA_33" = "מרחב אילת";
+"YEHIDA_34" = "מרחב הנגב";
+"YEHIDA_36" = "מרחב שמשון (עד 1999)";
+"YEHIDA_37" = "מרחב שמשון (החל ב-2004)";
+"YEHIDA_38" = "מרחב לכיש";
+"YEHIDA_41" = "מרחב שומרון";
+"YEHIDA_43" = "מרחב יהודה";
+"YEHIDA_51" = "מרחב השרון";
+"YEHIDA_52" = "מרחב השפלה";
+"YEHIDA_61" = "מחוז ירושלים";
