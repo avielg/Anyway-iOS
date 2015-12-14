@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ikd-KI-Q4f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ikd-KI-Q4f">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -33,10 +33,8 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="anyway big logo" translatesAutoresizingMaskIntoConstraints="NO" id="iGt-eX-LzX">
                                 <rect key="frame" x="55" y="256" width="211" height="57"/>
-                                <animations/>
                             </imageView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iGt-eX-LzX" firstAttribute="centerY" secondItem="bcs-ML-AbO" secondAttribute="centerY" id="aL1-TI-Qat"/>
@@ -62,11 +60,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i7O-2d-0mN" customClass="OCMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <animations/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CP-to-AaA" userLabel="כמות נמצאו..." customClass="InsetLabel" customModule="Anyway" customModuleProvider="target">
                                 <rect key="frame" x="289" y="36" width="15" height="23"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -81,7 +77,6 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbZ-6g-vcY" userLabel="Button - info">
                                 <rect key="frame" x="8" y="28" width="65" height="65"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="8jl-mO-zto"/>
                                     <constraint firstAttribute="width" secondItem="MbZ-6g-vcY" secondAttribute="height" multiplier="1:1" id="NAH-H8-T1Z"/>
@@ -95,7 +90,6 @@
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQN-1u-XRG">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <animations/>
                                 <items>
                                     <barButtonItem title="תאונות" id="pJH-ms-j9L">
                                         <connections>
@@ -115,7 +109,6 @@
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Rjl-d9-riV">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="283"/>
-                                        <animations/>
                                         <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="switchFilterCellIdentifier" id="xFg-px-WQW" customClass="FilterCellTableViewCell" customModule="Anyway" customModuleProvider="target">
@@ -130,20 +123,17 @@
                                                             <subviews>
                                                                 <switch opaque="NO" tag="102" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RLK-KP-8Pd">
                                                                     <rect key="frame" x="251" y="7" width="51" height="31"/>
-                                                                    <animations/>
                                                                     <connections>
                                                                         <action selector="switchValueChanged:" destination="xFg-px-WQW" eventType="valueChanged" id="VN2-2C-WpN"/>
                                                                     </connections>
                                                                 </switch>
                                                                 <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Option !" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGD-yM-RhD">
                                                                     <rect key="frame" x="20" y="11" width="223" height="21"/>
-                                                                    <animations/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <animations/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="centerY" secondItem="RLK-KP-8Pd" secondAttribute="centerY" id="0sK-tq-q4k"/>
@@ -154,7 +144,6 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
-                                                    <animations/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="BNz-zK-dQA" firstAttribute="top" secondItem="v4T-rG-NNE" secondAttribute="top" id="GcT-0K-NiR"/>
@@ -163,7 +152,6 @@
                                                         <constraint firstItem="BNz-zK-dQA" firstAttribute="leading" secondItem="v4T-rG-NNE" secondAttribute="leading" id="efg-21-IdY"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
-                                                <animations/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="btnSwitch" destination="RLK-KP-8Pd" id="Z1b-Qf-pgb"/>
@@ -182,20 +170,17 @@
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" text="From:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nU-Vk-H43">
                                                                     <rect key="frame" x="20" y="11" width="44" height="21"/>
-                                                                    <animations/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yu-4a-c1N">
                                                                     <rect key="frame" x="72" y="11" width="228" height="21"/>
-                                                                    <animations/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <animations/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstItem="2Yu-4a-c1N" firstAttribute="leading" secondItem="7nU-Vk-H43" secondAttribute="trailing" constant="8" id="PJL-Uf-VU8"/>
@@ -206,7 +191,6 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
-                                                    <animations/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="0wS-qc-6Ju" firstAttribute="leading" secondItem="g5X-qi-Kbj" secondAttribute="leading" id="8Dl-U1-k4h"/>
@@ -215,7 +199,6 @@
                                                         <constraint firstAttribute="bottom" secondItem="0wS-qc-6Ju" secondAttribute="bottom" id="sYR-56-dhl"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
-                                                <animations/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="detailLabel" destination="2Yu-4a-c1N" id="LJs-Zp-dGe"/>
@@ -229,7 +212,6 @@
                                         </connections>
                                     </tableView>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Rjl-d9-riV" firstAttribute="top" secondItem="GIT-SG-0Rw" secondAttribute="top" id="2wI-F8-QDc"/>
@@ -241,11 +223,9 @@
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cwt-pG-qJ7" userLabel="Back black view">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.35000000000000003" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GIT-SG-0Rw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3vE-iJ-Ff5"/>
@@ -301,7 +281,6 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJ5-fW-puP">
                                 <rect key="frame" x="254" y="16" width="50" height="30"/>
-                                <animations/>
                                 <inset key="contentEdgeInsets" minX="12" minY="6" maxX="12" maxY="6"/>
                                 <state key="normal" title="סגור">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -320,7 +299,6 @@
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Fk7-Eq-26z">
                                 <rect key="frame" x="0.0" y="62" width="320" height="442"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DetailCellTop" rowHeight="135" id="hXd-4i-ZEg" customClass="DetailCellTop" customModule="Anyway" customModuleProvider="target">
@@ -332,21 +310,18 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="240" text="ביום שלישי, ה-21 בנובמבר, תאונה קלה מסוג התנגשות עם רכב חונה" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lD7-9x-NG8">
                                                     <rect key="frame" x="20" y="8" width="280" height="48"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="251" verticalCompressionResistancePriority="755" text="מקור:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5j-wZ-fdu">
                                                     <rect key="frame" x="262" y="64" width="38" height="21"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="755" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hak-ZF-in4">
                                                     <rect key="frame" x="76" y="60" width="178" height="30"/>
-                                                    <animations/>
                                                     <state key="normal" title="הלשכה המרכזית לסטטיסטיקה"/>
                                                     <connections>
                                                         <action selector="actionSource" destination="hXd-4i-ZEg" eventType="touchUpInside" id="eVw-QO-zI3"/>
@@ -354,13 +329,11 @@
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="760" text="תאריך: שלישי, 21 באוקטובר, 7 בבוקר" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4t-q9-Nis">
                                                     <rect key="frame" x="20" y="93" width="280" height="21"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="M5j-wZ-fdu" secondAttribute="trailing" constant="20" symbolic="YES" id="0za-kj-ZQ8"/>
                                                 <constraint firstItem="v4t-q9-Nis" firstAttribute="top" secondItem="M5j-wZ-fdu" secondAttribute="bottom" constant="8" symbolic="YES" id="1ba-P7-7YG"/>
@@ -376,7 +349,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="v4t-q9-Nis" secondAttribute="trailing" constant="20" symbolic="YES" id="zcI-He-Y8p"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <connections>
                                             <outlet property="buttonSource" destination="hak-ZF-in4" id="gcM-Jh-Wy2"/>
                                             <outlet property="labelFooter" destination="v4t-q9-Nis" id="bPB-kV-RLb"/>
@@ -393,17 +365,14 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פרטי התאונה" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyf-jI-jFl">
                                                     <rect key="frame" x="20" y="20" width="248" height="24"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="260" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" image="detail_car" translatesAutoresizingMaskIntoConstraints="NO" id="Fex-Oc-l0F">
                                                     <rect key="frame" x="280" y="8" width="32" height="47"/>
-                                                    <animations/>
                                                 </imageView>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.85882352939999995" green="0.85882352939999995" blue="0.85882352939999995" alpha="0.19722450657894736" colorSpace="deviceRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Fex-Oc-l0F" secondAttribute="trailing" constant="8" id="3w4-74-Ean"/>
@@ -415,7 +384,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="tyf-jI-jFl" secondAttribute="bottom" constant="20" symbolic="YES" id="sLG-mh-FVV"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <connections>
                                             <outlet property="imageIcon" destination="Fex-Oc-l0F" id="b67-Id-1uG"/>
                                             <outlet property="labelTitle" destination="tyf-jI-jFl" id="jFn-bL-vJN"/>
@@ -430,20 +398,17 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" text="סוג דרך:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQt-Zb-Rel">
                                                     <rect key="frame" x="240" y="8" width="60" height="27"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="עירוני לא בצומת" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LV7-lh-mO9">
                                                     <rect key="frame" x="20" y="8" width="212" height="27"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="QQt-Zb-Rel" firstAttribute="leading" secondItem="LV7-lh-mO9" secondAttribute="trailing" constant="8" symbolic="YES" id="6EZ-ZC-Kuj"/>
                                                 <constraint firstAttribute="bottom" secondItem="QQt-Zb-Rel" secondAttribute="bottom" constant="8" id="AHG-gu-bko"/>
@@ -455,7 +420,6 @@
                                                 <constraint firstItem="LV7-lh-mO9" firstAttribute="top" secondItem="Uc5-gb-QH7" secondAttribute="top" constant="8" id="zBh-DP-NLm"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <color key="backgroundColor" red="0.85792726278305054" green="0.85804814100265503" blue="0.85788911581039429" alpha="0.19700000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="labelInfo" destination="LV7-lh-mO9" id="qbs-xI-1QB"/>
@@ -469,7 +433,6 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vJ5-fW-puP" firstAttribute="top" secondItem="TGm-ac-u93" secondAttribute="bottom" priority="900" constant="16" id="0wH-iY-bRk"/>
@@ -509,7 +472,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="760" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxh-xy-J7Q">
                                         <rect key="frame" x="250" y="16" width="50" height="30"/>
-                                        <animations/>
                                         <inset key="contentEdgeInsets" minX="12" minY="6" maxX="12" maxY="6"/>
                                         <state key="normal" title="סגור">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -528,14 +490,12 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anyway" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5a-xP-CVv">
                                         <rect key="frame" x="101" y="66" width="119" height="42"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="35"/>
                                         <color key="textColor" red="0.074509803921568626" green="0.60784313725490191" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Em2-NV-DRo" userLabel="Seperator">
                                         <rect key="frame" x="51" y="116" width="218" height="1"/>
-                                        <animations/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="ke9-yr-6k7"/>
@@ -543,14 +503,12 @@
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="משפיעים בכל דרך" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5w-2M-nJU">
                                         <rect key="frame" x="64" y="121" width="193" height="35"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="29"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcD-nt-HIs">
                                         <rect key="frame" x="14" y="662" width="291" height="30"/>
-                                        <animations/>
                                         <state key="normal" title="למידע נוסף: העמוד שלנו באתר הסדנה לידע ציבורי">
                                             <color key="titleColor" red="0.070588235294117646" green="0.55294117647058827" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -561,21 +519,18 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="770" misplaced="YES" text="הסדנא לידע ציבורי" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jdk-sO-5fr">
                                         <rect key="frame" x="16" y="727" width="211" height="37"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="31"/>
                                         <color key="textColor" red="0.070588235294117646" green="0.55294117647058827" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="740" image="sadna_logo" translatesAutoresizingMaskIntoConstraints="NO" id="g6g-zS-DDt">
                                         <rect key="frame" x="235" y="712" width="65" height="65"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="g6g-zS-DDt" secondAttribute="height" multiplier="1:1" id="lMp-gi-X7E"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQC-Jd-2iJ">
                                         <rect key="frame" x="20" y="176" width="284" height="478"/>
-                                        <animations/>
                                         <string key="text">ANYWAY היא הדרך שלנו למנוע את התאונה הבאה. ביחד, נהגים, הולכי רגל, אזרחים ומקבלי החלטות נאבק בתאונות הדרכים. 
 
 ANYWAY מציגה על גבי מפה תאונות דרכים עם נפגעים (ע״פ נתוני הלשכה המרכזית לסטטיסטיקה). בהמשך, יתווסף מידע נוסף למפה וכן תתאפשר יכולת לפתח דיונים מבוססי מיקום על פתרונות אפשריים והתארגנות אזרחית. באמצעות ידע זמין, נגיש ושקוף אנו שואפים להעלות את המודעות לנושא תאונות הדרכים ולהעצים את יכולת ההשפעה של כל אחד ואחת על הסביבה הקרובה- הבית, השכונה, בית הספר של הילדים, מקום העבודה ועוד- על ידי פעולה משותפת בקהילה. אנחנו מאמינים שבעזרת ידע ציבורי קיים המוצג באתר יווצרו ידע ותובנות חדשים. שיתוף הידע הזה יאפשר לחברה האזרחית להתארגן לפעולה אקטיבית ולהזרים הצעות, רעיונות והתראות בחזרה אל הרשויות. 
@@ -588,7 +543,6 @@ ANYWAY הוא חשמביר (פרויקט) הפועל בחסות הסדנא לי�
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <animations/>
                                 <constraints>
                                     <constraint firstItem="Jdk-sO-5fr" firstAttribute="leading" secondItem="i2U-g3-eNt" secondAttribute="leading" constant="16" id="05h-YY-p4c"/>
                                     <constraint firstItem="n5a-xP-CVv" firstAttribute="top" secondItem="nxh-xy-J7Q" secondAttribute="bottom" constant="20" id="40y-Le-4sO"/>
@@ -615,7 +569,6 @@ ANYWAY הוא חשמביר (פרויקט) הפועל בחסות הסדנא לי�
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Hhe-TW-Xi8" firstAttribute="top" secondItem="i2U-g3-eNt" secondAttribute="bottom" id="6Lr-kp-goJ"/>
@@ -648,7 +601,6 @@ ANYWAY הוא חשמביר (פרויקט) הפועל בחסות הסדנא לי�
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="XEt-d8-WGb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="detail cell" textLabel="hpV-V7-x2R" detailTextLabel="wcy-XN-987" style="IBUITableViewCellStyleSubtitle" id="VsS-Gm-Ir0">
@@ -661,7 +613,6 @@ ANYWAY הוא חשמביר (פרויקט) הפועל בחסות הסדנא לי�
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hpV-V7-x2R">
                                                     <rect key="frame" x="15" y="5" width="32" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -669,15 +620,12 @@ ANYWAY הוא חשמביר (פרויקט) הפועל בחסות הסדנא לי�
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wcy-XN-987">
                                                     <rect key="frame" x="15" y="25" width="41" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <connections>
                                             <segue destination="JTB-D5-H6S" kind="push" id="5al-fi-hfz"/>
                                         </connections>
@@ -689,7 +637,6 @@ ANYWAY הוא חשמביר (פרויקט) הפועל בחסות הסדנא לי�
                                 </connections>
                             </tableView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XEt-d8-WGb" firstAttribute="leading" secondItem="dS7-BL-zr5" secondAttribute="leading" id="Nhp-oI-IIE"/>
@@ -723,7 +670,6 @@ ANYWAY הוא חשמביר (פרויקט) הפועל בחסות הסדנא לי�
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="GXl-S3-LN8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

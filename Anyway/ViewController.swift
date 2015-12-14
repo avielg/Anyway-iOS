@@ -163,7 +163,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
             s.map.removeAnnotations(s.map.annotations)
             s.map.addAnnotations(marks)
             s.detailLabel.hidden = true
-            s.btnAccidents.title = "מציג \(count) תאונות"
+            s.btnAccidents.title = String.localizedStringWithFormat(local("main_presenting_count_label"), count)
             s.gettingInfo = false
             
             if let

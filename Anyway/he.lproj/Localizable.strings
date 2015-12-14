@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Anyway
+
+  Created by Aviel Gross on 14/12/2015.
+  Copyright © 2015 Hasadna. All rights reserved.
+*/
+
+//App UI (view controllers etc.)
+"main_presenting_count_label" =  "מציג %d תאונות";
+
+//Localization.swift
+"SUG_DEREH_1" = "עירוני בצומת";
+"SUG_DEREH_2" = "עירוני לא בצומת";
+"SUG_DEREH_3" = "לא עירוני בצומת";
+"SUG_DEREH_4" = "לא עירוני לא בצומת";
