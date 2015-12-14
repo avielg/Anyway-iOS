@@ -114,9 +114,31 @@ class Network {
             "show_severe"  : showSevere,
             "show_light"   : showLight,
             "show_inaccurate" : showInaccurate,
-            "show_markers" : 1,
-            "show_discussions" : 1
+            "show_markers" : 1, // should always be on...
+            
+            // New filter options, currently hardcoded
+            // TODO: Add these as options in filter with UI
+            "show_discussions" : 1,
+            "approx" : 1,
+            "accurate" : 1,
+            "show_urban" : 3,
+            "show_intersection" : 3,
+            "show_lane" : 3,
+            "show_day" : 7,
+            "show_holiday" : 0,
+            "show_time" : 24,
+            "start_time" : 25,
+            "end_time" : 25,
+            "weather" : 0,
+            "road" : 0,
+            "separation" : 0,
+            "surface" : 0,
+            "acctype" : 0,
+            "controlmeasure" : 0,
+            "district" : 0,
+            "case_type" : 0
         ]
+        
         
         //print("params: \(params)")
         
