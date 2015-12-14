@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  Anyway
+
+  Created by Aviel Gross on 14/12/2015.
+  Copyright © 2015 Hasadna. All rights reserved.
+*/
+
+//App UI (view controllers etc.)
+/**
+ *
+ *      The format for a key should be as follows:
+ *      1. screen name
+ *      2. followed by short (1-2 words) description of the string
+ *      3. followed by what it is (e.g., "label", "button", "alert_ok" etc.)
+ *
+ *      All lowercase, seperated with underscores.
+ *
+ *      e.g.: 
+ *            "accidents_list_all_button"
+ *            "info_close_button"
+ *
+ */
+"main_presenting_count_label" =  "Showing %d accidents";
+
+//Localization.swift
+"SUG_DEREH_1" = "Urban junction";
+"SUG_DEREH_2" = "Urban, not a junction";
+"SUG_DEREH_3" = "Intercity junction";
+"SUG_DEREH_4" = "Intercity, not a junction";

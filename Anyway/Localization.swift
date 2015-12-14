@@ -8,14 +8,16 @@
 
 import Foundation
 
+struct Localization {
+    var SUG_DERECH = [
+        1 : local("SUG_DEREH_1"),
+        2 : local("SUG_DEREH_2"),
+        3 : local("SUG_DEREH_3"),
+        4 : local("SUG_DEREH_4")
+    ]
+}
 
 var localization = [
-    "SUG_DEREH": [
-        "1": "עירוני בצומת",
-        "2": "עירוני לא בצומת",
-        "3": "לא עירוני בצומת",
-        "4": "לא עירוני לא בצומת"
-    ],
     "YEHIDA": [
         "11" : "מרחב חוף (חיפה)",
         "12" : "מרחב גליל",
