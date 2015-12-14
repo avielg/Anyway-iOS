@@ -9,7 +9,8 @@ iOS version for https://github.com/hasadna/anyway
 ## Getting Started
 
  - Install latest version of Xcode 7
- - `$ git clone https://github.com/hasadna/Anyway-iOS.git`
+ - Fork this repo
+ - `$ git clone https://github.com/__YOU__/Anyway-iOS.git`
  - `$ cd Anyway-iOS`
  - `$ open Anyway.xcworkspace `
  - To run on device make sure it has iOS 8 or newer
