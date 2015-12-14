@@ -4,7 +4,7 @@ iOS version for https://github.com/hasadna/anyway
 
 ## Requirements
 
-`Anyway-iOS` requires iOS 8.0+ and Xcode 7.1.
+`Anyway-iOS` requires iOS 8.0+ and Xcode 7.2.
 
 ## Getting Started
 
