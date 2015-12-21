@@ -10,6 +10,13 @@ import Foundation
 
 let fallbackStartLocationCoordinate = CLLocationCoordinate2D(latitude: 32.158091269627874, longitude: 34.88087036877948)
 
+struct Color {
+    static var red = UIColor(red:0.856, green:0.123, blue:0.168, alpha:1)
+    static var orange = UIColor(red:1, green:0.626, blue:0, alpha:1)
+    static var yellow = UIColor(red:1, green:0.853, blue:0, alpha:1)
+    static var blue = UIColor(red:0, green:0.526, blue:0.808, alpha:1)
+}
+
 enum Severity: Int {
     case Fatal = 1, Severe, Light, Various
 }

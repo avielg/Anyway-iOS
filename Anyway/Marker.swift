@@ -129,6 +129,8 @@ extension Marker: VisualMarker {
     
     
     var iconName: String? {
+        return "ic_directions_car"
+        
         var icons = [Severity:[AccidentType:String]]()
         icons[Severity.Fatal] = [
             AccidentType.CarToPedestrian : "vehicle_person_lethal.png",

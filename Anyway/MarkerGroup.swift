@@ -42,7 +42,10 @@ extension MarkerGroup {
 }
 
 extension MarkerGroup : VisualMarker {
+    
     var iconName: String? {
+        return "ic_flare"
+        
         switch highestSeverity {
         case Severity.Severe.rawValue: return "multiple_severe"
         case Severity.Various.rawValue: return "multiple_various"
