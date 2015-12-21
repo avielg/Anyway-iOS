@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MapKit
 
 private func newHud() -> JGProgressHUD {
     let hud = JGProgressHUD(style: .Light)
@@ -16,24 +15,9 @@ private func newHud() -> JGProgressHUD {
     return hud
 }
 
-public class Filter {
-    var startDate = NSDate(timeIntervalSince1970: 1356991200) { didSet{ valueChanged() } } // Jan 1st 2013
-    var endDate = NSDate(timeIntervalSince1970: 1388527200) { didSet{ valueChanged() } }  // Jan 1st 2014
-    var showFatal = true { didSet{ valueChanged() } }
-    var showSevere = true { didSet{ valueChanged() } }
-    var showLight = true { didSet{ valueChanged() } }
-    var showInaccurate = false { didSet{ valueChanged() } }
-    
-    var description: String { return "FILTER: Fatal: \(showFatal) | Severe: \(showSevere) | Light: \(showLight) | Inaccurate: \(showInaccurate)" }
-    
-    var onChange: ()->() = {}
-    func valueChanged() { print("filter changed"); onChange() }
-}
 
-class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource, RMDateSelectionViewControllerDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
-    
-        
     enum DateSelectionType { case None, Start, End }
 
     @IBOutlet weak var btnFilter: UIBarButtonItem!
@@ -58,16 +42,28 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
     @IBOutlet weak var constraintTableViewBottom: NSLayoutConstraint!
     @IBOutlet weak var constraintTableViewHeight: NSLayoutConstraint!
     
+    /// Holds the filter params for the current results
     var filter = Filter()
+    
+    /// Wether the user is currently selecting start date, end, or none
     var dateSelectionType = DateSelectionType.None
     
+    /// Last area shown on the map
     var lastRegion = MKCoordinateRegionForMapRect(MKMapRectNull)
+    
+    /// Handling the network calls
     let network = Network()
+    
+    /// Progress hud
     let hud = newHud()
+    
+    /// Wether we currently get info from server
     var gettingInfo = false
     
+    /// flag for determine the first time the view layed out
     var initialLayout = true
     
+    /// flag for handling auto-moving the map when app launches
     var shouldJumpToStartLocation = true
     
     
@@ -107,7 +103,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
         if initialLayout {
             initialLayout = false
             
-            let rows = CGFloat(totalRowsForTable(.Filter))
+            let rows = CGFloat(totalRowsForFilterTable())
             let rowHeight = CGFloat(44)// tableView.rowHeight -> is -1 at this point
             let sections = CGFloat(numberOfSectionsInTableView(tableView))
             let headerHeight = CGFloat( tableView(tableView, heightForHeaderInSection: 0) )
@@ -136,36 +132,40 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
     
     func updateInfoIfPossible(map: MKMapView, filterChanged: Bool) {
         
-        //If too far - don't get anything
+        // Too far >> don't get anything
         if Int(map.edgesDistance()) > MAX_DIST_OF_MAP_EDGES {
             self.setAreaCanFetchDataUI(false)
             return
         }
         self.setAreaCanFetchDataUI(true)
         
-        //If zommed in - don't update
+        // Only Zoomed in >> don't update
         if !filterChanged && MKCoordinateRegionContainsRegion(lastRegion, map.region) && map.visibleAnnotations().count > 0 {
             return
         }
         
+        // In the middle >> don't update
+        if gettingInfo { return }
         
-        //if gettingInfo { return }
+        
         gettingInfo = true
-        //self.detailLabel.text = "..."
         hud.showInView(view)
-        
         print("Getting some...")
+        
+        
         network.getAnnotations(map.edgePoints(), filter: filter) { [weak self] marks, count in
             print("finished parsing")
             guard let s = self else {return}
             
             s.map.annotationsToIgnore = nil
-            s.map.removeAnnotations(s.map.annotations)
-            s.map.addAnnotations(marks)
+            s.map.removeAnnotations(s.map.annotations) // remove old
+            s.map.addAnnotations(marks) // add new
             s.detailLabel.hidden = true
             s.btnAccidents.title = String.localizedStringWithFormat(local("main_presenting_count_label"), count)
+            
             s.gettingInfo = false
             
+            // iPad/big iPhone >> update accidents list in split view
             if let
                 nav = s.splitViewController?.viewControllers.safeRetrieveElement(1) as? UINavigationController,
                 detail = nav.viewControllers.first as? AccidentsViewController
@@ -174,12 +174,15 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
                 detail.refreshUI()
             }
             
-            s.hud.dismiss()
+            s.hud.dismiss() // hide progress hud
         }
 
     }
     
+    
+    
     //MARK: - Actions
+    
     @IBAction func actionFilter(sender: UIBarButtonItem) {
         openTableView(.Filter)
     }
@@ -201,6 +204,10 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
         
     }
     
+    
+    
+    //MARK: - UI Logic
+    
     func populate(accidentsViewController dest: AccidentsViewController) {
         // get map annotations as MarkerAnnotation
         let annots = map.annotations.flatMap{ ($0 as? MarkerAnnotation) ?? nil }
@@ -220,13 +227,24 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
         dest.dataSource = markers.sort{$0.created.compare($1.created) == .OrderedDescending}
     }
     
-    enum TableViewType { case Closed, Filter, Accidents }
+    func openDateSelectionController() {
+        let dateSelectionVC = RMDateSelectionViewController.dateSelectionController()
+        dateSelectionVC.datePicker.datePickerMode = UIDatePickerMode.Date
+        dateSelectionVC.disableBouncingWhenShowing = true
+        dateSelectionVC.delegate = self
+        dateSelectionVC.show()
+    }
     
-    var tableViewType = TableViewType.Closed
     
-    func openTableView(type: TableViewType) {
-        tableViewType = type
-//        backBlackView.alpha = 0
+    
+    //MARK: - Filter Table View Logic
+    
+    enum TableViewState { case Closed, Filter }
+    
+    var tableViewState = TableViewState.Closed
+    
+    func openTableView(type: TableViewState) {
+        tableViewState = type
         backBlackView.hidden = false
         constraintTableViewBottom.constant = 0
         view.bringSubviewToFront(tableViewContainer)
@@ -237,266 +255,26 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
     }
     
     func closeTableView() {
-        tableViewType = .Closed
+        tableViewState = .Closed
         
         constraintTableViewBottom.constant = -constraintTableViewHeight.constant
         UIView.animateWithDuration(0.25, animations:{
             self.tableViewContainer.layoutIfNeeded()
             self.backBlackView.alpha = 0
-            }) { _ in
-                self.backBlackView.hidden = true
+        }) { _ in
+            self.backBlackView.hidden = true
         }
     }
     
-    func openDateSelectionController() {
-        let dateSelectionVC = RMDateSelectionViewController.dateSelectionController()
-        dateSelectionVC.datePicker.datePickerMode = UIDatePickerMode.Date
-        dateSelectionVC.disableBouncingWhenShowing = true
-        dateSelectionVC.delegate = self
-        dateSelectionVC.show()
+    func numberOfRowsForFilterTable(section s: Int) -> Int {
+        return s == 0 ? 2 : 4
     }
+    
+    func totalRowsForFilterTable() -> Int {
+        return 6
+    }
+    
 
-    //MARK: - Table View
-    
-    enum TableType {
-        case Filter, Accidents
-    }
-    
-    func numberOfRowsForTable(type: TableType, _ section: Int) -> Int {
-        switch type {
-        case .Filter: return section == 0 ? 2 : 4
-        case .Accidents: return 0
-        }
-    }
-    func totalRowsForTable(type: TableType) -> Int {
-        switch type {
-        case .Filter: return 6
-        case .Accidents: return 0
-        }
-    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2;
-    }
-    
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 22;
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfRowsForTable(.Filter, section)
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let dateId = "dateFilterCellIdentifier"
-        let switchId = "switchFilterCellIdentifier"
-        var cell: FilterCellTableViewCell!
-        
-        switch (indexPath.row, indexPath.section) {
-//        case (0, 0): fallthrough //Pick start date
-        case (_, 0):             //Pick end date
-            cell = tableView.dequeueReusableCellWithIdentifier(dateId) as! FilterCellTableViewCell
-            cell.selectionStyle = UITableViewCellSelectionStyle.Default
-        default:
-            cell = tableView.dequeueReusableCellWithIdentifier(switchId) as! FilterCellTableViewCell
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
-        }
-        
-        switch (indexPath.row, indexPath.section) {
-        case (0, 0): cell.filterType = .StartDate
-        case (1, 0): cell.filterType = .EndDate
-        case (0, 1): cell.filterType = .ShowFatal
-        case (1, 1): cell.filterType = .ShowSevere
-        case (2, 1): cell.filterType = .ShowLight
-        case (3, 1): cell.filterType = .ShowInaccurate
-        default: break
-        }
-        
-        cell.filter = filter
-        
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        switch (indexPath.row, indexPath.section) {
-        case (0, 0): //Pick start date
-            dateSelectionType = .Start
-            closeTableView()
-            openDateSelectionController()
-        case (1, 0): //Pick end date
-            dateSelectionType = .End
-            closeTableView()
-            openDateSelectionController()
-        default:
-            break
-        }
-        
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
-    }
-    
-    //MARK: - Scrollview
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        if scrollView == tableView {
-            constraintTableViewBottom.constant += scrollView.contentOffset.y
-            constraintTableViewBottom.constant = min(0, constraintTableViewBottom.constant)
-            scrollView.contentOffset = CGPointZero
-            tableView.setNeedsLayout()
-        }
-    }
-    
-    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        if scrollView == tableView {
-            let delta = constraintTableViewHeight.constant / 3
-            if abs(constraintTableViewBottom.constant) > delta || velocity.y < -1 {
-                closeTableView()
-            } else {
-                openTableView(tableViewType)
-            }
-        }
-    }
-    
-    //MARK: - MapView
-    
-    func mapViewRegionDidChangeFromUserInteraction() -> Bool {
-        if let view = map.subviews.first {
-            for gesture in view.gestureRecognizers ?? [] {
-                if gesture.state == .Began || gesture.state == .Ended {
-                    return true
-                }
-            }
-        }
-        return false
-    }
-        
-    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        map.clusteringEnabled = Int(mapView.edgesDistance()) > MIN_DIST_CLUSTER_DISABLE
-        
-        printFunc()
-        print("old region: \(lastRegion.center) | new: \(mapView.region.center)")
-        
-        let distance = CLLocation.distance(from: lastRegion.center, to: mapView.region.center)
-        print("distance: \(distance)")
-        
-        if distance > 50 {
-            updateInfoIfPossible(mapView, filterChanged:false)
-        }
-        lastRegion = mapView.region
-    }
-    
-    func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-        network.cancelRequestIfNeeded()
-        
-        if hud.visible {
-            hud.dismissAnimated(false)
-        }
-        
-        if mapViewRegionDidChangeFromUserInteraction() {
-            shouldJumpToStartLocation = false
-        }
-    }
-    
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if let cluster = annotation as? OCAnnotation {
-            let pin = ClusterView(annotation: cluster, reuseIdentifier: clusterReuseIdentifierDefault)
-            pin.label?.text = "\(cluster.annotationsInCluster().count)"
-            return pin
-        }
-        if let marker = annotation as? Marker {
-            
-            if let mView = mapView.dequeueReusableAnnotationViewWithIdentifier(markerReuseIdentifierDefault) as? MarkerView {
-                mView.annotation = marker
-                return mView
-            }
-            return MarkerView(marker: marker)
-            
-        }
-        if let markerGroup = annotation as? MarkerGroup {
-            
-            if let mView = mapView.dequeueReusableAnnotationViewWithIdentifier(markerGroupReuseIdentifierDefault) as? MarkerGroupView {
-                mView.annotation = markerGroup
-                return mView
-            }
-            return MarkerGroupView(markerGroup: markerGroup)
-            
-        }
-        return nil
-    }
-    
-    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if let markerView = view as? MarkerView {
-            
-            guard let dest = storyboard?.instantiateViewControllerWithIdentifier(DetailViewController.storyboardId) as? DetailViewController
-                else {return}
-            
-            guard let marker = markerView.annotation as? Marker
-                else {return}
-            
-            dest.detailData = marker
-            
-            if let
-                nav = splitViewController?.viewControllers.safeRetrieveElement(1) as? UINavigationController,
-                first = nav.viewControllers.first
-            {
-                nav.setViewControllers([first, dest], animated: true)
-            } else {
-                showDetailViewController(dest, sender: self)
-            }
-            
-        }
-    }
-    
-    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
-        if let groupView = view as? MarkerGroupView {
-            
-            if let ann = view.annotation {
-                mapView.removeAnnotation(ann)
-            }
-            
-            let markerGroup = groupView.annotation as! MarkerGroup
-            let markers = markerGroup.markers
-            if map.annotationsToIgnore == nil {
-                map.annotationsToIgnore = NSMutableSet()
-            }
-            map.annotationsToIgnore.addObjectsFromArray(markers)
-            
-//            for marker in markers { //to make sure...
-//                marker.coordinate = markerGroup.coordinate
-//            }
-            
-            let addMarkers = {
-                mapView.addAnnotations(markers)
-            }
-            
-            UIView.animateWithDuration(0, animations:addMarkers) { _ in
-                UIView.animateWithDuration(0.25, animations: {
-                    AnnotationCoordinateUtility.repositionAnnotations(markers, toAvoidClashAtCoordination: markerGroup.coordinate, circleDistanceDelta: mapView.edgesDistance()/100)
-                })
-            }
-            
-        }
-    }
-    
-    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-        if shouldJumpToStartLocation {
-            shouldJumpToStartLocation = false
-            let user = map.userLocation
-            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-            let mapRegion = MKCoordinateRegion(center: user.coordinate, span: span)
-            map.setRegion(mapRegion, animated: true)
-        }
-    }
-    
-    func mapView(mapView: MKMapView, didFailToLocateUserWithError error: NSError) {
-        if shouldJumpToStartLocation {
-            shouldJumpToStartLocation = false
-            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-            let mapRegion = MKCoordinateRegion(center: fallbackStartLocationCoordinate, span: span)
-            map.setRegion(mapRegion, animated: true)
-        }
-    }
-    
-    
     //MARK: - Location Services
     
     func isLocationMonitoringAuthorized() -> Bool {
@@ -532,20 +310,6 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, 
         }
     }
 
-    //MARK: - Date selection delegate
-    func dateSelectionViewController(vc: RMDateSelectionViewController!, didSelectDate aDate: NSDate!) {
-        if dateSelectionType == .Start {
-            filter.startDate = aDate
-        } else {
-            filter.endDate = aDate
-        }
-        tableView?.reloadData()
-        openTableView(.Filter)
-    }
-    func dateSelectionViewControllerDidCancel(vc: RMDateSelectionViewController!) {
-        openTableView(.Filter)
-    }
-    
     
 }
 
