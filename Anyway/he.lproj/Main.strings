@@ -29,7 +29,7 @@
 /* Class = "UILabel"; text = "משפיעים בכל דרך"; ObjectID = "c5w-2M-nJU"; */
 "c5w-2M-nJU.text" = "משפיעים בכל דרך";
 
-/* Class = "UIButton"; normalTitle = "הלשכה המרכזית לסטטיסטיקה"; ObjectID = "hak-ZF-in4"; */
+/* Class = "UIButton"; normalTitle = "Central Bureau of Statistics"; ObjectID = "hak-ZF-in4"; */
 "hak-ZF-in4.normalTitle" = "הלשכה המרכזית לסטטיסטיקה";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "hpV-V7-x2R"; */

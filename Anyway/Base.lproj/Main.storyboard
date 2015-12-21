@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ikd-KI-Q4f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ikd-KI-Q4f">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Split View Controller-->
@@ -279,24 +282,6 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJ5-fW-puP">
-                                <rect key="frame" x="254" y="16" width="50" height="30"/>
-                                <inset key="contentEdgeInsets" minX="12" minY="6" maxX="12" maxY="6"/>
-                                <state key="normal" title="סגור">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="dismissAction" destination="JTB-D5-H6S" eventType="touchUpInside" id="8up-vI-2WP"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Fk7-Eq-26z">
                                 <rect key="frame" x="0.0" y="62" width="320" height="442"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -308,44 +293,50 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="134.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="240" misplaced="YES" text="ביום שלישי, ה-21 בנובמבר, תאונה קלה מסוג התנגשות עם רכב חונה" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lD7-9x-NG8">
-                                                    <rect key="frame" x="20" y="8" width="280" height="48"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="240" text="ביום שלישי, ה-21 בנובמבר, תאונה קלה מסוג התנגשות עם רכב חונה" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lD7-9x-NG8">
+                                                    <rect key="frame" x="20" y="8" width="280" height="49"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="251" verticalCompressionResistancePriority="755" misplaced="YES" text="מקור:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5j-wZ-fdu">
-                                                    <rect key="frame" x="262" y="64" width="38" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="251" verticalCompressionResistancePriority="755" text="Source:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5j-wZ-fdu" propertyAccessControl="none">
+                                                    <rect key="frame" x="20" y="65" width="52.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="760" text="תאריך: שלישי, 21 באוקטובר, 7 בבוקר" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4t-q9-Nis">
+                                                    <rect key="frame" x="20" y="92" width="280" height="22.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="755" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hak-ZF-in4">
-                                                    <rect key="frame" x="76" y="60" width="178" height="30"/>
-                                                    <state key="normal" title="הלשכה המרכזית לסטטיסטיקה"/>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="755" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hak-ZF-in4">
+                                                    <rect key="frame" x="78" y="61" width="184" height="29.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <state key="normal" title="Central Bureau of Statistics"/>
                                                     <connections>
                                                         <action selector="actionSource" destination="hXd-4i-ZEg" eventType="touchUpInside" id="eVw-QO-zI3"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="760" text="תאריך: שלישי, 21 באוקטובר, 7 בבוקר" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4t-q9-Nis">
-                                                    <rect key="frame" x="20" y="93" width="280" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="M5j-wZ-fdu" secondAttribute="trailing" constant="20" symbolic="YES" id="0za-kj-ZQ8"/>
-                                                <constraint firstItem="v4t-q9-Nis" firstAttribute="top" secondItem="M5j-wZ-fdu" secondAttribute="bottom" constant="8" symbolic="YES" id="1ba-P7-7YG"/>
+                                                <constraint firstItem="v4t-q9-Nis" firstAttribute="top" secondItem="M5j-wZ-fdu" secondAttribute="bottom" constant="6" id="1ba-P7-7YG"/>
+                                                <constraint firstItem="M5j-wZ-fdu" firstAttribute="leading" secondItem="6E6-cZ-j9T" secondAttribute="leadingMargin" constant="12" id="A6Q-0p-Plg"/>
                                                 <constraint firstAttribute="bottom" secondItem="v4t-q9-Nis" secondAttribute="bottom" constant="20" symbolic="YES" id="BM9-54-cag"/>
-                                                <constraint firstItem="hak-ZF-in4" firstAttribute="baseline" secondItem="M5j-wZ-fdu" secondAttribute="baseline" id="RZG-Mb-f7R"/>
+                                                <constraint firstItem="hak-ZF-in4" firstAttribute="firstBaseline" secondItem="M5j-wZ-fdu" secondAttribute="baseline" constant="-0.5" id="DG3-wC-BFo"/>
+                                                <constraint firstItem="hak-ZF-in4" firstAttribute="leading" secondItem="M5j-wZ-fdu" secondAttribute="trailing" constant="5.5" id="GIC-83-kqq"/>
+                                                <constraint firstItem="hak-ZF-in4" firstAttribute="centerY" secondItem="M5j-wZ-fdu" secondAttribute="centerY" constant="0.5" id="Lub-Xq-oZ9"/>
                                                 <constraint firstItem="v4t-q9-Nis" firstAttribute="leading" secondItem="6E6-cZ-j9T" secondAttribute="leading" constant="20" symbolic="YES" id="SIP-ar-BRA"/>
                                                 <constraint firstItem="lD7-9x-NG8" firstAttribute="top" secondItem="6E6-cZ-j9T" secondAttribute="top" constant="8" id="UBh-j8-eUb"/>
-                                                <constraint firstItem="M5j-wZ-fdu" firstAttribute="leading" secondItem="hak-ZF-in4" secondAttribute="trailing" constant="8" symbolic="YES" id="Uhb-WL-XWg"/>
+                                                <constraint firstItem="hak-ZF-in4" firstAttribute="baseline" secondItem="M5j-wZ-fdu" secondAttribute="baseline" constant="-0.5" id="Ubv-7G-c11" propertyAccessControl="none"/>
                                                 <constraint firstItem="M5j-wZ-fdu" firstAttribute="top" secondItem="lD7-9x-NG8" secondAttribute="bottom" constant="8" symbolic="YES" id="gmb-JR-SDx"/>
+                                                <constraint firstItem="hak-ZF-in4" firstAttribute="top" secondItem="lD7-9x-NG8" secondAttribute="bottom" constant="4" id="gxE-7f-sE1"/>
                                                 <constraint firstItem="lD7-9x-NG8" firstAttribute="leading" secondItem="6E6-cZ-j9T" secondAttribute="leading" constant="20" symbolic="YES" id="jae-B1-LVj"/>
-                                                <constraint firstItem="v4t-q9-Nis" firstAttribute="top" secondItem="M5j-wZ-fdu" secondAttribute="bottom" constant="8" symbolic="YES" id="keg-eP-ud4"/>
+                                                <constraint firstItem="v4t-q9-Nis" firstAttribute="top" secondItem="M5j-wZ-fdu" secondAttribute="bottom" constant="6" id="keg-eP-ud4"/>
                                                 <constraint firstAttribute="trailing" secondItem="lD7-9x-NG8" secondAttribute="trailing" constant="20" symbolic="YES" id="koC-WZ-LGr"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hak-ZF-in4" secondAttribute="trailing" constant="20" symbolic="YES" id="oXI-ca-dbx"/>
+                                                <constraint firstItem="hak-ZF-in4" firstAttribute="top" secondItem="6E6-cZ-j9T" secondAttribute="top" constant="61" id="seq-ZV-gUN"/>
                                                 <constraint firstAttribute="trailing" secondItem="v4t-q9-Nis" secondAttribute="trailing" constant="20" symbolic="YES" id="zcI-He-Y8p"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -363,24 +354,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פרטי התאונה" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyf-jI-jFl">
-                                                    <rect key="frame" x="20" y="20" width="248" height="24"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="260" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" image="detail_car" translatesAutoresizingMaskIntoConstraints="NO" id="Fex-Oc-l0F">
+                                                    <rect key="frame" x="15" y="9" width="32" height="47"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פרטי התאונה" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyf-jI-jFl">
+                                                    <rect key="frame" x="55" y="21" width="248" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="260" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" image="detail_car" translatesAutoresizingMaskIntoConstraints="NO" id="Fex-Oc-l0F">
-                                                    <rect key="frame" x="280" y="8" width="32" height="47"/>
-                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.85882352939999995" green="0.85882352939999995" blue="0.85882352939999995" alpha="0.19722450657894736" colorSpace="deviceRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Fex-Oc-l0F" secondAttribute="trailing" constant="8" id="3w4-74-Ean"/>
-                                                <constraint firstItem="tyf-jI-jFl" firstAttribute="top" secondItem="rH6-ij-ZCJ" secondAttribute="top" constant="20" symbolic="YES" id="9HS-bh-6wD"/>
-                                                <constraint firstItem="Fex-Oc-l0F" firstAttribute="leading" secondItem="tyf-jI-jFl" secondAttribute="trailing" constant="12" id="Mgm-pK-965"/>
-                                                <constraint firstItem="tyf-jI-jFl" firstAttribute="leading" secondItem="rH6-ij-ZCJ" secondAttribute="leading" constant="20" symbolic="YES" id="dj2-wB-QUw"/>
-                                                <constraint firstItem="Fex-Oc-l0F" firstAttribute="top" secondItem="rH6-ij-ZCJ" secondAttribute="top" constant="8" id="fWY-Sb-eWj"/>
+                                                <constraint firstAttribute="trailing" secondItem="Fex-Oc-l0F" secondAttribute="trailing" constant="273" id="3w4-74-Ean"/>
+                                                <constraint firstItem="tyf-jI-jFl" firstAttribute="top" secondItem="rH6-ij-ZCJ" secondAttribute="top" constant="21" id="9HS-bh-6wD"/>
+                                                <constraint firstItem="Fex-Oc-l0F" firstAttribute="leading" secondItem="tyf-jI-jFl" secondAttribute="trailing" constant="-288" id="Mgm-pK-965"/>
+                                                <constraint firstItem="tyf-jI-jFl" firstAttribute="leading" secondItem="rH6-ij-ZCJ" secondAttribute="leading" constant="55" id="dj2-wB-QUw"/>
+                                                <constraint firstItem="Fex-Oc-l0F" firstAttribute="top" secondItem="rH6-ij-ZCJ" secondAttribute="top" constant="9" id="fWY-Sb-eWj"/>
                                                 <constraint firstAttribute="bottom" secondItem="Fex-Oc-l0F" secondAttribute="bottom" constant="9" id="jmj-zb-jnH"/>
+                                                <constraint firstItem="tyf-jI-jFl" firstAttribute="leading" secondItem="Fex-Oc-l0F" secondAttribute="trailing" constant="8" symbolic="YES" id="oM2-YT-U6W"/>
                                                 <constraint firstAttribute="bottom" secondItem="tyf-jI-jFl" secondAttribute="bottom" constant="20" symbolic="YES" id="sLG-mh-FVV"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -396,26 +388,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" text="סוג דרך:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQt-Zb-Rel">
-                                                    <rect key="frame" x="240" y="8" width="60" height="27"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" text="סוג דרך:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQt-Zb-Rel">
+                                                    <rect key="frame" x="8" y="8" width="59.5" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="עירוני לא בצומת" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LV7-lh-mO9">
-                                                    <rect key="frame" x="20" y="8" width="212" height="27"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="עירוני לא בצומת" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LV7-lh-mO9">
+                                                    <rect key="frame" x="75" y="8" width="237" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="QQt-Zb-Rel" firstAttribute="leading" secondItem="LV7-lh-mO9" secondAttribute="trailing" constant="8" symbolic="YES" id="6EZ-ZC-Kuj"/>
                                                 <constraint firstAttribute="bottom" secondItem="QQt-Zb-Rel" secondAttribute="bottom" constant="8" id="AHG-gu-bko"/>
-                                                <constraint firstItem="LV7-lh-mO9" firstAttribute="leading" secondItem="Uc5-gb-QH7" secondAttribute="leading" constant="20" symbolic="YES" id="LZd-C1-nou"/>
-                                                <constraint firstItem="QQt-Zb-Rel" firstAttribute="leading" secondItem="LV7-lh-mO9" secondAttribute="trailing" constant="8" symbolic="YES" id="Txu-C1-bBk"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="LV7-lh-mO9" secondAttribute="trailing" id="dKA-n7-TWy"/>
                                                 <constraint firstAttribute="bottom" secondItem="LV7-lh-mO9" secondAttribute="bottom" constant="8" id="iFg-4d-b7B"/>
-                                                <constraint firstAttribute="trailing" secondItem="QQt-Zb-Rel" secondAttribute="trailing" constant="20" symbolic="YES" id="jfT-fH-sZH"/>
+                                                <constraint firstItem="LV7-lh-mO9" firstAttribute="leading" secondItem="QQt-Zb-Rel" secondAttribute="trailing" constant="8" symbolic="YES" id="qw2-3R-wXI"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="QQt-Zb-Rel" secondAttribute="leading" id="r1r-ky-hS2"/>
                                                 <constraint firstItem="QQt-Zb-Rel" firstAttribute="top" secondItem="Uc5-gb-QH7" secondAttribute="top" constant="8" id="yzX-Jq-jIf"/>
                                                 <constraint firstItem="LV7-lh-mO9" firstAttribute="top" secondItem="Uc5-gb-QH7" secondAttribute="top" constant="8" id="zBh-DP-NLm"/>
                                             </constraints>
@@ -432,6 +423,24 @@
                                     <outlet property="delegate" destination="JTB-D5-H6S" id="Vxh-aV-x02"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJ5-fW-puP">
+                                <rect key="frame" x="16" y="16" width="50" height="30"/>
+                                <inset key="contentEdgeInsets" minX="12" minY="6" maxX="12" maxY="6"/>
+                                <state key="normal" title="סגור">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="dismissAction" destination="JTB-D5-H6S" eventType="touchUpInside" id="8up-vI-2WP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -440,8 +449,8 @@
                             <constraint firstItem="Fk7-Eq-26z" firstAttribute="leading" secondItem="2vr-Fk-HUK" secondAttribute="leading" id="8rC-y5-aVv"/>
                             <constraint firstItem="U6W-Ye-Qcs" firstAttribute="top" secondItem="Fk7-Eq-26z" secondAttribute="bottom" id="AuG-LF-BVY"/>
                             <constraint firstAttribute="trailing" secondItem="Fk7-Eq-26z" secondAttribute="trailing" id="Jjz-Xk-G0c"/>
+                            <constraint firstItem="vJ5-fW-puP" firstAttribute="leading" secondItem="2vr-Fk-HUK" secondAttribute="leadingMargin" id="R7X-lf-H8U"/>
                             <constraint firstItem="Fk7-Eq-26z" firstAttribute="top" secondItem="vJ5-fW-puP" secondAttribute="bottom" priority="900" constant="16" id="ZEk-FX-UTY"/>
-                            <constraint firstAttribute="trailing" secondItem="vJ5-fW-puP" secondAttribute="trailing" constant="16" id="wxx-oV-AAG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MMG-Jm-uOu"/>
