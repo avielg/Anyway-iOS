@@ -4,7 +4,7 @@ iOS version for https://github.com/hasadna/anyway
 
 ## Requirements
 
-`Anyway-iOS` requires iOS 8.0+ and Xcode 7.1.
+`Anyway-iOS` requires iOS 8.0+ and Xcode 7.2.
 
 ## Getting Started
 
@@ -29,3 +29,5 @@ Since Xcode 7 we can compile and run Xcode projects without paying the 99$ Devel
 ## Contributing
 
 The issues in this repo contain also tasks, TODO's and FIXME's. Feel free to grab one of them and pull-request away...
+
+Please try to follow the [Swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines.html) (don't panic it's pretty concise...)
