@@ -14,8 +14,8 @@
 /* Class = "UILabel"; text = "עירוני לא בצומת"; ObjectID = "LV7-lh-mO9"; */
 "LV7-lh-mO9.text" = "עירוני לא בצומת";
 
-/* Class = "UILabel"; text = "מקור:"; ObjectID = "M5j-wZ-fdu"; */
-"M5j-wZ-fdu.text" = "מקור:";
+/* Class = "UILabel"; text = "Source:"; ObjectID = "M5j-wZ-fdu"; */
+"M5j-wZ-fdu.text" = "Source:";
 
 /* Class = "UILabel"; text = "סוג דרך:"; ObjectID = "QQt-Zb-Rel"; */
 "QQt-Zb-Rel.text" = "סוג דרך:";
