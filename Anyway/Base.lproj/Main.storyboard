@@ -3,8 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -293,26 +291,26 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="134.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="240" text="ביום שלישי, ה-21 בנובמבר, תאונה קלה מסוג התנגשות עם רכב חונה" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lD7-9x-NG8">
-                                                    <rect key="frame" x="20" y="8" width="280" height="49"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minor collision with a parked vehicle occured." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lD7-9x-NG8">
+                                                    <rect key="frame" x="20" y="8" width="280" height="48"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="251" verticalCompressionResistancePriority="755" text="Source:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5j-wZ-fdu" propertyAccessControl="none">
-                                                    <rect key="frame" x="20" y="65" width="52.5" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="249" verticalCompressionResistancePriority="755" text="Source:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5j-wZ-fdu" propertyAccessControl="none">
+                                                    <rect key="frame" x="20" y="64" width="52.5" height="26.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="760" text="תאריך: שלישי, 21 באוקטובר, 7 בבוקר" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4t-q9-Nis">
-                                                    <rect key="frame" x="20" y="92" width="280" height="22.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="760" text="Tuesday, October 21, 7:00 am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4t-q9-Nis">
+                                                    <rect key="frame" x="20" y="96.5" width="280" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="755" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hak-ZF-in4">
-                                                    <rect key="frame" x="78" y="61" width="184" height="29.5"/>
+                                                    <rect key="frame" x="78" y="62" width="184" height="30"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <state key="normal" title="Central Bureau of Statistics"/>
                                                     <connections>
@@ -324,19 +322,15 @@
                                                 <constraint firstItem="v4t-q9-Nis" firstAttribute="top" secondItem="M5j-wZ-fdu" secondAttribute="bottom" constant="6" id="1ba-P7-7YG"/>
                                                 <constraint firstItem="M5j-wZ-fdu" firstAttribute="leading" secondItem="6E6-cZ-j9T" secondAttribute="leadingMargin" constant="12" id="A6Q-0p-Plg"/>
                                                 <constraint firstAttribute="bottom" secondItem="v4t-q9-Nis" secondAttribute="bottom" constant="20" symbolic="YES" id="BM9-54-cag"/>
-                                                <constraint firstItem="hak-ZF-in4" firstAttribute="firstBaseline" secondItem="M5j-wZ-fdu" secondAttribute="baseline" constant="-0.5" id="DG3-wC-BFo"/>
                                                 <constraint firstItem="hak-ZF-in4" firstAttribute="leading" secondItem="M5j-wZ-fdu" secondAttribute="trailing" constant="5.5" id="GIC-83-kqq"/>
-                                                <constraint firstItem="hak-ZF-in4" firstAttribute="centerY" secondItem="M5j-wZ-fdu" secondAttribute="centerY" constant="0.5" id="Lub-Xq-oZ9"/>
                                                 <constraint firstItem="v4t-q9-Nis" firstAttribute="leading" secondItem="6E6-cZ-j9T" secondAttribute="leading" constant="20" symbolic="YES" id="SIP-ar-BRA"/>
                                                 <constraint firstItem="lD7-9x-NG8" firstAttribute="top" secondItem="6E6-cZ-j9T" secondAttribute="top" constant="8" id="UBh-j8-eUb"/>
-                                                <constraint firstItem="hak-ZF-in4" firstAttribute="baseline" secondItem="M5j-wZ-fdu" secondAttribute="baseline" constant="-0.5" id="Ubv-7G-c11" propertyAccessControl="none"/>
                                                 <constraint firstItem="M5j-wZ-fdu" firstAttribute="top" secondItem="lD7-9x-NG8" secondAttribute="bottom" constant="8" symbolic="YES" id="gmb-JR-SDx"/>
-                                                <constraint firstItem="hak-ZF-in4" firstAttribute="top" secondItem="lD7-9x-NG8" secondAttribute="bottom" constant="4" id="gxE-7f-sE1"/>
                                                 <constraint firstItem="lD7-9x-NG8" firstAttribute="leading" secondItem="6E6-cZ-j9T" secondAttribute="leading" constant="20" symbolic="YES" id="jae-B1-LVj"/>
                                                 <constraint firstItem="v4t-q9-Nis" firstAttribute="top" secondItem="M5j-wZ-fdu" secondAttribute="bottom" constant="6" id="keg-eP-ud4"/>
                                                 <constraint firstAttribute="trailing" secondItem="lD7-9x-NG8" secondAttribute="trailing" constant="20" symbolic="YES" id="koC-WZ-LGr"/>
+                                                <constraint firstItem="hak-ZF-in4" firstAttribute="centerY" secondItem="M5j-wZ-fdu" secondAttribute="centerY" id="mwq-gO-JZd"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hak-ZF-in4" secondAttribute="trailing" constant="20" symbolic="YES" id="oXI-ca-dbx"/>
-                                                <constraint firstItem="hak-ZF-in4" firstAttribute="top" secondItem="6E6-cZ-j9T" secondAttribute="top" constant="61" id="seq-ZV-gUN"/>
                                                 <constraint firstAttribute="trailing" secondItem="v4t-q9-Nis" secondAttribute="trailing" constant="20" symbolic="YES" id="zcI-He-Y8p"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -357,7 +351,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="260" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" image="detail_car" translatesAutoresizingMaskIntoConstraints="NO" id="Fex-Oc-l0F">
                                                     <rect key="frame" x="15" y="9" width="32" height="47"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="פרטי התאונה" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyf-jI-jFl">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyf-jI-jFl">
                                                     <rect key="frame" x="55" y="21" width="248" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -388,14 +382,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" text="סוג דרך:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQt-Zb-Rel">
-                                                    <rect key="frame" x="8" y="8" width="59.5" height="27"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" text="Road type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQt-Zb-Rel">
+                                                    <rect key="frame" x="8" y="8" width="84.5" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="עירוני לא בצומת" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LV7-lh-mO9">
-                                                    <rect key="frame" x="75" y="8" width="237" height="27"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Urban, not an intersection" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LV7-lh-mO9">
+                                                    <rect key="frame" x="100.5" y="8" width="211.5" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
