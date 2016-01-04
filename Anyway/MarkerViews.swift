@@ -25,31 +25,54 @@ func *(l: CGRect, r: Int) -> CGRect {
 //MARK: - Views
 
 class IconPinView: UIView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        setup()
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        setup()
+//    }
     
-    func setup() {
+//    convenience init(alpha: CGFloat = 1.0, frame: CGRect) {
+//        self.init(frame: frame)
+//        setup(alpha)
+//    }
+//    
+//    class func newPin(frame: CGRect, alpha: CGFloat = 1.0) -> IconPinView {
+//        let p = IconPinView(frame: frame)
+//    }
+    
+    func setup(alpha: CGFloat = 1.0) {
         guard let img = UIImage(named: "ic_loupe")
             else { assertionFailure("no img"); return }
         
-        
+        // main pin
         let back = UIImageView(image: img)
         self.frame = back.frame
         back.transform = CGAffineTransformMakeRotation(CGFloat(45.0 * (M_PI/180)))
+        
+        // white back
+        let mainPinVisibleDiameter = CGFloat(35)
+        let v = UIView(frame: CGRectMake(0, 0, mainPinVisibleDiameter, mainPinVisibleDiameter))
+        v.backgroundColor = UIColor(white: 1, alpha: alpha * 1.5)
+        v.layer.cornerRadius = v.frame.width / 2
+        v.layer.masksToBounds = true
+        v.center.x = center.x
+        v.center.y = frame.width / 2
+        
+        addSubview(v)
         addSubview(back)
     }
     
     func insertIcon(icon: UIImage) {
+        
+        // icon
         let iv = UIImageView(image: icon)
         iv.center.x = center.x
         iv.center.y = frame.width / 2
+        
         addSubview(iv)
     }
     
@@ -66,7 +89,17 @@ class IconPinView: UIView {
 extension MKAnnotationView {
     /// Setup Icon
     func setupIcon(marker: VisualMarker, color: UIColor) {
+        
+        // make the pin
         let iconPin = IconPinView(frame: frame)
+        
+        // setup with the marker color
+        var alpha: CGFloat = 0
+        var white: CGFloat = 0
+        color.getWhite(&white, alpha: &alpha)
+        iconPin.setup(alpha)
+        
+        // add the icon
         if let
             name = marker.iconName,
             img = UIImage(named: name) {
@@ -103,7 +136,7 @@ class MarkerGroupView: MKAnnotationView {
         self.init(annotation: markerGroup, reuseIdentifier: reuseIdentifier)
         enabled = true
         canShowCallout = true
-        setupIcon(markerGroup, color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.3))
+        setupIcon(markerGroup, color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.5))
     }
     
 }
