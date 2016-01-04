@@ -39,3 +39,10 @@ extension MKMapView {
         return visibleAnots
     }
 }
+
+extension CGSize {
+    init(squareSide side: CGFloat) {
+        width = side
+        height = side
+    }
+}

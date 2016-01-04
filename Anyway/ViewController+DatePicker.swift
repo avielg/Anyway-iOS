@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Date picker for the filter "from" and "to" parameters
+*/
 extension ViewController: RMDateSelectionViewControllerDelegate {
     
     func dateSelectionViewController(vc: RMDateSelectionViewController!, didSelectDate aDate: NSDate!) {

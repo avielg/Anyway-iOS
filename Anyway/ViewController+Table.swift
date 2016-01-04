@@ -8,14 +8,65 @@
 
 import UIKit
 
+/**
+ Filter Table View Logic
+*/
+extension ViewController {
+    
+    enum TableViewState { case Closed, Filter }
+        
+    func openTableView(type: TableViewState) {
+        tableViewState = type
+        backBlackView.hidden = false
+        constraintTableViewBottom.constant = 0
+        view.bringSubviewToFront(tableViewContainer)
+        UIView.animateWithDuration(0.25) {
+            self.tableViewContainer.layoutIfNeeded()
+            self.backBlackView.alpha = 1
+        }
+    }
+    
+    func closeTableView() {
+        tableViewState = .Closed
+        
+        constraintTableViewBottom.constant = -constraintTableViewHeight.constant
+        UIView.animateWithDuration(0.25, animations:{
+            self.tableViewContainer.layoutIfNeeded()
+            self.backBlackView.alpha = 0
+        }) { _ in
+            self.backBlackView.hidden = true
+        }
+    }
+    
+    func numberOfRowsForFilterTable(section s: Int) -> Int {
+        return s == 0 ? 2 : 4
+    }
+    
+    func totalRowsForFilterTable() -> Int {
+        return 6
+    }
+    
+}
+
+/**
+ Managing the filter table view UI
+ 
+    Data for populating the table is
+    harcoded. Much of the logic and data
+    is in 'FilterCellTableViewCell' and
+    is defined by setting it's 'filterType'.
+ 
+*/
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    
+    //MARK: UITableViewDataSource
+    /* 
+        What to show? 
+    */
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2;
-    }
-    
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 22;
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,6 +103,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    
+    //MARK: UITableViewDelegate
+    /* 
+        - How to show it?
+        - What to do on when X happens?
+    */
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 22;
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.row, indexPath.section) {
         case (0, 0): //Pick start date
@@ -69,7 +131,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
     
-    //MARK: - Scrollview
+    
+    //MARK: UIScrollViewDelegate
+    /* 
+        What to do when the table (which
+        is actually a UISCrollView
+        subclass...) moves/gets dragged?
+    */
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView == tableView {

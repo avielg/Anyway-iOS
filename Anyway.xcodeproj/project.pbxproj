@@ -16,6 +16,7 @@
 		30568A931C0CDAB500471D83 /* Marker+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30568A921C0CDAB500471D83 /* Marker+General.swift */; };
 		30568A951C0CDAF200471D83 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30568A941C0CDAF200471D83 /* Person.swift */; };
 		30568A981C0CDF4C00471D83 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30568A971C0CDF4C00471D83 /* Vehicle.swift */; };
+		3063AFDA1C3B0B77003B995D /* ViewController+LocationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3063AFD91C3B0B77003B995D /* ViewController+LocationServices.swift */; };
 		30667BAA1A92698900853125 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30667BA91A92698900853125 /* Marker.swift */; };
 		30673C681C1F4B6200CEB5FB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30673C6A1C1F4B6200CEB5FB /* Localizable.strings */; };
 		30673C701C1F5F1600CEB5FB /* ViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30673C6F1C1F5F1600CEB5FB /* ViewController+MapView.swift */; };
@@ -79,6 +80,7 @@
 		30568A971C0CDF4C00471D83 /* Vehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		305E9AEF1BFA4E08003858F3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		305E9AF11BFA4E0C003858F3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		3063AFD91C3B0B77003B995D /* ViewController+LocationServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+LocationServices.swift"; sourceTree = "<group>"; };
 		30667BA91A92698900853125 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		30673C661C1F4B2900CEB5FB /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Main.strings; sourceTree = "<group>"; };
 		30673C671C1F4B2900CEB5FB /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				30D6E5B31A92639500337FDB /* ViewController.swift */,
 				30673C731C1F608600CEB5FB /* ViewController+DatePicker.swift */,
 				30673C6F1C1F5F1600CEB5FB /* ViewController+MapView.swift */,
+				3063AFD91C3B0B77003B995D /* ViewController+LocationServices.swift */,
 				30673C711C1F5F5600CEB5FB /* ViewController+Table.swift */,
 			);
 			name = "Main Screen";
@@ -596,6 +599,7 @@
 				30367E9E1A9D006400B16DA1 /* OCMapView.m in Sources */,
 				30BEB4631A9D1A7A005F3205 /* JGProgressHUD.m in Sources */,
 				30BEB4641A9D1A7A005F3205 /* JGProgressHUDAnimation.m in Sources */,
+				3063AFDA1C3B0B77003B995D /* ViewController+LocationServices.swift in Sources */,
 				30AF036D1A9BC663008B7889 /* AnnotationCoordinateUtility.m in Sources */,
 				30CDE5171BFA690A00BBC183 /* Localization.swift in Sources */,
 				309DD0461BFA464100AF80D1 /* Utilities.swift in Sources */,
