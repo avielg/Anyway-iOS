@@ -12,13 +12,13 @@
 "Jdk-sO-5fr.text" = "הסדנא לידע ציבורי";
 
 /* Class = "UILabel"; text = "עירוני לא בצומת"; ObjectID = "LV7-lh-mO9"; */
-"LV7-lh-mO9.text" = "עירוני לא בצומת";
+"LV7-lh-mO9.text" = "Urban, not an intersection";
 
-/* Class = "UILabel"; text = "מקור:"; ObjectID = "M5j-wZ-fdu"; */
-"M5j-wZ-fdu.text" = "מקור:";
+/* Class = "UILabel"; text = "Source:"; ObjectID = "M5j-wZ-fdu"; */
+"M5j-wZ-fdu.text" = "Source:";
 
 /* Class = "UILabel"; text = "סוג דרך:"; ObjectID = "QQt-Zb-Rel"; */
-"QQt-Zb-Rel.text" = "סוג דרך:";
+"QQt-Zb-Rel.text" = "Road type:";
 
 /* Class = "UILabel"; text = "ANYWAY היא הדרך שלנו למנוע את התאונה הבאה. ביחד, נהגים, הולכי רגל, אזרחים ומקבלי החלטות נאבק בתאונות הדרכים. \n\nANYWAY מציגה על גבי מפה תאונות דרכים עם נפגעים (ע״פ נתוני הלשכה המרכזית לסטטיסטיקה). בהמשך, יתווסף מידע נוסף למפה וכן תתאפשר יכולת לפתח דיונים מבוססי מיקום על פתרונות אפשריים והתארגנות אזרחית. באמצעות ידע זמין, נגיש ושקוף אנו שואפים להעלות את המודעות לנושא תאונות הדרכים ולהעצים את יכולת ההשפעה של כל אחד ואחת על הסביבה הקרובה- הבית, השכונה, בית הספר של הילדים, מקום העבודה ועוד- על ידי פעולה משותפת בקהילה. אנחנו מאמינים שבעזרת ידע ציבורי קיים המוצג באתר יווצרו ידע ותובנות חדשים. שיתוף הידע הזה יאפשר לחברה האזרחית להתארגן לפעולה אקטיבית ולהזרים הצעות, רעיונות והתראות בחזרה אל הרשויות. \n\nANYWAY הוא חשמביר (פרויקט) הפועל בחסות הסדנא לידע ציבורי ונבנה על ידי מתנדבים. \n\nחברי הצוות: שגיא סמולרסקי, דניאל הרשקוביץ, מיכל טננברג, ראובן יגל, יוסי אטיאס, עומרי בהומי, עודד לזר, דרור ברן, נחום קשב, אושרי וייס, משה אבאייב ואביאל גרוס. "; ObjectID = "SQC-Jd-2iJ"; */
 "SQC-Jd-2iJ.text" = "ANYWAY היא הדרך שלנו למנוע את התאונה הבאה. ביחד, נהגים, הולכי רגל, אזרחים ומקבלי החלטות נאבק בתאונות הדרכים. \n\nANYWAY מציגה על גבי מפה תאונות דרכים עם נפגעים (ע״פ נתוני הלשכה המרכזית לסטטיסטיקה). בהמשך, יתווסף מידע נוסף למפה וכן תתאפשר יכולת לפתח דיונים מבוססי מיקום על פתרונות אפשריים והתארגנות אזרחית. באמצעות ידע זמין, נגיש ושקוף אנו שואפים להעלות את המודעות לנושא תאונות הדרכים ולהעצים את יכולת ההשפעה של כל אחד ואחת על הסביבה הקרובה- הבית, השכונה, בית הספר של הילדים, מקום העבודה ועוד- על ידי פעולה משותפת בקהילה. אנחנו מאמינים שבעזרת ידע ציבורי קיים המוצג באתר יווצרו ידע ותובנות חדשים. שיתוף הידע הזה יאפשר לחברה האזרחית להתארגן לפעולה אקטיבית ולהזרים הצעות, רעיונות והתראות בחזרה אל הרשויות. \n\nANYWAY הוא חשמביר (פרויקט) הפועל בחסות הסדנא לידע ציבורי ונבנה על ידי מתנדבים. \n\nחברי הצוות: שגיא סמולרסקי, דניאל הרשקוביץ, מיכל טננברג, ראובן יגל, יוסי אטיאס, עומרי בהומי, עודד לזר, דרור ברן, נחום קשב, אושרי וייס, משה אבאייב ואביאל גרוס. ";
@@ -29,14 +29,14 @@
 /* Class = "UILabel"; text = "משפיעים בכל דרך"; ObjectID = "c5w-2M-nJU"; */
 "c5w-2M-nJU.text" = "משפיעים בכל דרך";
 
-/* Class = "UIButton"; normalTitle = "הלשכה המרכזית לסטטיסטיקה"; ObjectID = "hak-ZF-in4"; */
-"hak-ZF-in4.normalTitle" = "הלשכה המרכזית לסטטיסטיקה";
+/* Class = "UIButton"; normalTitle = "Central Bureau of Statistics"; ObjectID = "hak-ZF-in4"; */
+"hak-ZF-in4.normalTitle" = "Central Bureau of Statistics";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "hpV-V7-x2R"; */
 "hpV-V7-x2R.text" = "Title";
 
-/* Class = "UILabel"; text = "ביום שלישי, ה-21 בנובמבר, תאונה קלה מסוג התנגשות עם רכב חונה"; ObjectID = "lD7-9x-NG8"; */
-"lD7-9x-NG8.text" = "ביום שלישי, ה-21 בנובמבר, תאונה קלה מסוג התנגשות עם רכב חונה";
+/* Class = "UILabel"; text = "Minor collision with a parked vehicle occured."; ObjectID = "lD7-9x-NG8"; */
+"lD7-9x-NG8.text" = "Minor collision with a parked vehicle occured.";
 
 /* Class = "UILabel"; text = "Anyway"; ObjectID = "n5a-xP-CVv"; */
 "n5a-xP-CVv.text" = "Anyway";
@@ -50,11 +50,11 @@
 /* Class = "UILabel"; text = "Option !"; ObjectID = "sGD-yM-RhD"; */
 "sGD-yM-RhD.text" = "Option !";
 
-/* Class = "UILabel"; text = "פרטי התאונה"; ObjectID = "tyf-jI-jFl"; */
+/* Class = "UILabel"; text = "Details"; ObjectID = "tyf-jI-jFl"; */
 "tyf-jI-jFl.text" = "Details";
 
-/* Class = "UILabel"; text = "תאריך: שלישי, 21 באוקטובר, 7 בבוקר"; ObjectID = "v4t-q9-Nis"; */
-"v4t-q9-Nis.text" = "תאריך: שלישי, 21 באוקטובר, 7 בבוקר";
+/* Class = "UILabel"; text = "Tuesday, October 21, 7:00 am"; ObjectID = "v4t-q9-Nis"; */
+"v4t-q9-Nis.text" = "Tuesday, October 21, 7:00 am";
 
 /* Class = "UIButton"; normalTitle = "סגור"; ObjectID = "vJ5-fW-puP"; */
 "vJ5-fW-puP.normalTitle" = "Close";
