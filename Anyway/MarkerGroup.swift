@@ -46,6 +46,9 @@ extension MarkerGroup : VisualMarker {
     var iconName: String? {
         return "ic_flare"
         
+        /*
+            See Marker.iconName for why this is commented.
+
         switch highestSeverity {
         case Severity.Severe.rawValue: return "multiple_severe"
         case Severity.Various.rawValue: return "multiple_various"
@@ -53,7 +56,9 @@ extension MarkerGroup : VisualMarker {
         case Severity.Light.rawValue: return "multiple_medium"
         default: return "multiple_various"
         }
+        */
     }
+    
 }
 
 

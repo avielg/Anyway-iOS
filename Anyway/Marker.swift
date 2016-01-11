@@ -131,6 +131,11 @@ extension Marker: VisualMarker {
     var iconName: String? {
         return "ic_directions_car"
         
+        /* 
+            Previously we used different icons depend on accident
+            type. Currently the icon is the same (following website
+            design). This stays in case the design will change one day.
+        
         var icons = [Severity:[AccidentType:String]]()
         icons[Severity.Fatal] = [
             AccidentType.CarToPedestrian : "vehicle_person_lethal.png",
@@ -147,12 +152,14 @@ extension Marker: VisualMarker {
 
         if let sev = Severity(rawValue: severity),
             let someIcons = icons[sev],
-            let type = accidentMinorTypeToType(subtype),
+            let minorType = AccidentMinorType(rawValue: subtype),
+            let type = accidentMinorTypeToType(minorType),
             let icon = someIcons[type] {
                 return icon
         }
         
         return nil
+        */
     }
 }
 
