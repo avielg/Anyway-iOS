@@ -15,7 +15,11 @@ private func newHud() -> JGProgressHUD {
     return hud
 }
 
-
+/**
+ Main app screen
+  Main view is the map, on the botton a bar with
+  "accidents list" button and "filter" button.
+*/
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     enum DateSelectionType { case None, Start, End }
@@ -42,14 +46,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var constraintTableViewBottom: NSLayoutConstraint!
     @IBOutlet weak var constraintTableViewHeight: NSLayoutConstraint!
     
+    
     /// Holds the filter params for the current results
     var filter = Filter()
     
+    /// Filter table current state
+    var tableViewState = TableViewState.Closed
+
     /// Wether the user is currently selecting start date, end, or none
     var dateSelectionType = DateSelectionType.None
     
     /// Last area shown on the map
     var lastRegion = MKCoordinateRegionForMapRect(MKMapRectNull)
+    
+    /// Location Services
+    let locationManager = CLLocationManager()
     
     /// Handling the network calls
     let network = Network()
@@ -235,81 +246,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         dateSelectionVC.show()
     }
     
-    
-    
-    //MARK: - Filter Table View Logic
-    
-    enum TableViewState { case Closed, Filter }
-    
-    var tableViewState = TableViewState.Closed
-    
-    func openTableView(type: TableViewState) {
-        tableViewState = type
-        backBlackView.hidden = false
-        constraintTableViewBottom.constant = 0
-        view.bringSubviewToFront(tableViewContainer)
-        UIView.animateWithDuration(0.25) {
-            self.tableViewContainer.layoutIfNeeded()
-            self.backBlackView.alpha = 1
-        }
-    }
-    
-    func closeTableView() {
-        tableViewState = .Closed
-        
-        constraintTableViewBottom.constant = -constraintTableViewHeight.constant
-        UIView.animateWithDuration(0.25, animations:{
-            self.tableViewContainer.layoutIfNeeded()
-            self.backBlackView.alpha = 0
-        }) { _ in
-            self.backBlackView.hidden = true
-        }
-    }
-    
-    func numberOfRowsForFilterTable(section s: Int) -> Int {
-        return s == 0 ? 2 : 4
-    }
-    
-    func totalRowsForFilterTable() -> Int {
-        return 6
-    }
-    
-
-    //MARK: - Location Services
-    
-    func isLocationMonitoringAuthorized() -> Bool {
-        let status = CLLocationManager.authorizationStatus()
-        return status == .AuthorizedAlways || status == .AuthorizedWhenInUse
-    }
-    
-    let locationManager = CLLocationManager()
-    
-    func beginTrackingLocation() {
-        locationManager.delegate = self
-//        man.delegate = self
-        let status = CLLocationManager.authorizationStatus()
-        if status == CLAuthorizationStatus.NotDetermined {
-            //NEVER ASKED
-            if locationManager.respondsToSelector("requestWhenInUseAuthorization") {
-                locationManager.requestWhenInUseAuthorization()
-            } else {
-                locationManager.startUpdatingLocation()
-            }
-        }
-        else if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
-            //GRANTED
-            map.showsUserLocation = true
-            
-        } else if status == .Restricted {
-            //RESTRICTED
-            //TODO: Hide "show me" button
-            
-        } else if status == .Denied {
-            //DENIED
-            //TODO: Set a "denied" alert for when tapping "show me" button
-        }
-    }
-
     
 }
 

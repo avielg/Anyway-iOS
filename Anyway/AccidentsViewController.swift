@@ -8,6 +8,15 @@
 
 import UIKit
 
+/**
+ A screen for a list of accidents
+ 
+ Visible:
+    a. when tapping the button at the
+       bottom bar in the main screen.
+    b. on an iPad, in a split-screen enviroment.
+ 
+*/
 class AccidentsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     static let storyboardId = "all acidents storyboard id"
@@ -17,9 +26,14 @@ class AccidentsViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var closeBarButton: UIBarButtonItem!
     
+    
+    //MARK: Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.titleView = UIImageView(image: UIImage(named: "logo_rectangle")!)
+        
+        let img = UIImage(named: "logo_rectangle")!
+        navigationItem.titleView = UIImageView(image: img)
         
         if splitViewController?.collapsed ?? true {
             // show the close button
@@ -42,6 +56,9 @@ class AccidentsViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.reloadData()
     }
     
+    /**
+     Prepare for presenting another screen
+     */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard let
             dest = segue.destinationViewController as? DetailViewController,
@@ -52,6 +69,9 @@ class AccidentsViewController: UIViewController, UITableViewDataSource, UITableV
         
         dest.detailData = marker
     }
+    
+    
+    //MARK: TableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
@@ -73,7 +93,11 @@ class AccidentsViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     
+    
+    //MARK: Actions
+    
     @IBAction func ActionClose(sender: UIBarButtonItem) {
-        (self.presentingViewController ?? self.navigationController?.presentingViewController)?.dismissViewControllerAnimated(true) { }
+        let controller = self.presentingViewController ?? self.navigationController?.presentingViewController
+        controller?.dismissViewControllerAnimated(true) { }
     }
 }
