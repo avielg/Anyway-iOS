@@ -118,23 +118,31 @@ private struct StaticData {
     
     static func title(atIndex indexPath: NSIndexPath, persons: [Person], vehicles: [Vehicle]) -> String {
         switch (indexPath.section, indexPath.row) {
-            case (1, 0): return "מספר סידורי"
-            case (1, 1): return "סוג תיק"
-            case (1, 2): return "חומרת תאונה"
-            case (1, 3): return "סוג תאונה"
+            case (1, 1): return "מספר סידורי"
+            case (1, 2): return "סוג תיק"
+            case (1, 3): return "חומרת תאונה"
+            case (1, 4): return "סוג תאונה"
             
-            case (2, 0): return "סוג דרך"
-            case (2, 1): return "צורת דרך"
+            case (2, 1): return "סוג דרך"
+            case (2, 2): return "צורת דרך"
+            case (2, 3): return "חד מסלול"
+            case (2, 4): return "מהירות מותרת"
+            case (2, 5): return "תקינות"
+            case (2, 6): return "רוחב"
+            case (2, 7): return "סימון תמרור"
+            case (2, 8): return "תאורה"
+            case (2, 9): return "בקרה"
+            case (2, 10): return "מזג אוויר"
             
-            case (3, 0): return "תאריך"
-            case (3, 1): return "סוג יום"
-            case (3, 2): return "" // address (no title on website design)
+            case (3, 1): return "תאריך"
+            case (3, 2): return "סוג יום"
+            case (3, 3): return "" // address (no title on website design)
             
             case (4, let i): return fieldName(i, rawInfos: persons)
             case (5, let i): return fieldName(i, rawInfos: vehicles)
             
-            case (6, 0): return "עיגון"
-            case (6, 1): return "יחידה"
+            case (6, 1): return "עיגון"
+            case (6, 2): return "יחידה"
 
 //        case 1: return "כותרת"
 //        case 2: return "כתובת"
@@ -189,38 +197,32 @@ private struct StaticData {
         
         switch (indexPath.section, indexPath.row) {
             
-        case (1, 0): return "\(data.id)"
-        case (1, 1): return "סוג תיק"
-        case (1, 2): return data.localizedSeverity
-        case (1, 3): return data.localizedSubtype
+        case (1, 1): return "\(data.id)"
+        case (1, 2): return "סוג תיק"
+        case (1, 3): return data.localizedSeverity
+        case (1, 4): return data.localizedSubtype
             
-        case (2, 0): return localization["SUG_DEREH"]?["\(data.roadType)"] ?? ""
-        case (2, 1): return localization["ZURAT_DEREH"]?["\(data.road_surface)"] ?? ""
+        case (2, 1): return Localization.SUG_DERECH[data.roadType] ?? ""
+        case (2, 2): return Localization.ZURAT_DEREH[data.roadShape] ?? ""
+        case (2, 3): return Localization.HAD_MASLUL[data.one_lane] ?? ""
+        case (2, 4): return Localization.MEHIRUT_MUTERET[data.speed_limit] ?? ""
+        case (2, 5): return Localization.TKINUT[data.intactness] ?? ""
+        case (2, 6): return Localization.ROHAV[data.road_width] ?? ""
+        case (2, 7): return Localization.SIMUN_TIMRUR[data.road_sign] ?? ""
+        case (2, 8): return Localization.TEURA[data.road_light] ?? ""
+        case (2, 9): return Localization.BAKARA[data.road_control] ?? ""
+        case (2, 10): return Localization.MEZEG_AVIR[data.weather] ?? ""
             
-        case (3, 0): return "\(data.created.longDate), \(data.created.shortTime)"
-        case (3, 1): return localization["SUG_YOM"]?["\(data.dayType)"] ?? ""
-        case (3, 2): return data.address
+        case (3, 1): return "\(data.created.longDate), \(data.created.shortTime)"
+        case (3, 2): return Localization.SUG_YOM[data.dayType] ?? ""
+        case (3, 3): return data.address
             
         case (4, let i): return fieldValue(i, rawInfos: persons)
         case (5, let i): return fieldValue(i, rawInfos: vehicles)
             
-        case (6, 0): return localization["STATUS_IGUN"]?["\(data.intactness)"] ?? "" //TODO: is right param?
-        case (6, 1): return localization["YEHIDA"]?["\(data.unit)"] ?? "" 
-            
-//        case 1: return data.title ?? ""
-//        case 2: return data.address
-//        case 3: return data.descriptionContent
-//        case 4: return data.titleAccident
-//        case 5: return data.created.shortDescription
-//        case 6: return "\(data.followers.count)"
-//        case 7: return data.following ? "כן" : "לא"
-//        case 8: return "\(data.id)"
-//        case 9: return data.localizedAccuracy
-//        case 10: return data.localizedSeverity
-//        case 11: return data.localizedSubtype
-//        case 12: return "\(data.type)"
-//        case 13: return data.user
-//        case 14: return data.coordinate.humanDescription
+        case (6, 1): return Localization.STATUS_IGUN[data.intactness] ?? "" //TODO: is right param?
+        case (6, 2): return Localization.YEHIDA[data.unit] ?? ""
+
         default: return ""
         }
     }

@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   Anyway
 
@@ -24,10 +24,10 @@
 "main_presenting_count_label" =  "Showing %d accidents";
 
 //Localization.swift
-"SUG_DEREH_1" = "Urban junction";
-"SUG_DEREH_2" = "Urban, not a junction";
-"SUG_DEREH_3" = "Intercity junction";
-"SUG_DEREH_4" = "Intercity, not a junction";
+"SUG_DERECH_1" = "Urban junction";
+"SUG_DERECH_2" = "Urban, not a junction";
+"SUG_DERECH_3" = "Intercity junction";
+"SUG_DERECH_4" = "Intercity, not a junction";
 
 "YEHIDA_11" = "Coastal region (Haifa)";
 "YEHIDA_12" = "Galil region";
@@ -43,3 +43,146 @@
 "YEHIDA_51" = "מרחב השרון";
 "YEHIDA_52" = "מרחב השפלה";
 "YEHIDA_61" = "מחוז ירושלים";
+
+"SUG_YOM_1" = "Holiday";
+"SUG_YOM_2" = "holiday Eve";
+"SUG_YOM_3" = "Business Day";
+"SUG_YOM_4" = "Other";
+
+"HUMRAT_TEUNA_1" = "Lethal";
+"HUMRAT_TEUNA_2" = "Severe";
+"HUMRAT_TEUNA_3" = "Minor";
+
+"SUG_TEUNA_1" = "פגיעה בהולך רגל";
+"SUG_TEUNA_2" = "התנגשות חזית אל צד";
+"SUG_TEUNA_3" = "התנגשות חזית באחור";
+"SUG_TEUNA_4" = "התנגשות צד בצד";
+"SUG_TEUNA_5" = "התנגשות חזית אל חזית";
+"SUG_TEUNA_6" = "התנגשות עם רכב שנעצר ללא חניה";
+"SUG_TEUNA_7" = "התנגשות עם רכב חונה";
+"SUG_TEUNA_8" = "התנגשות עם עצם דומם";
+"SUG_TEUNA_9" = "ירידה מהכביש או עלייה למדרכה";
+"SUG_TEUNA_10" = "התהפכות";
+"SUG_TEUNA_11" = "החלקה";
+"SUG_TEUNA_12" = "פגיעה בנוסע בתוך כלי רכב";
+"SUG_TEUNA_13" = "נפילה ברכב נע";
+"SUG_TEUNA_14" = "שריפה";
+"SUG_TEUNA_15" = "אחר";
+"SUG_TEUNA_17" = "התנגשות אחור אל חזית";
+"SUG_TEUNA_18" = "התנגשות אחור אל צד";
+"SUG_TEUNA_19" = "התנגשות עם בעל חיים";
+"SUG_TEUNA_20" = "פגיעה ממטען של רכב";
+"SUG_TEUNA_21" = "איחוד הצלה";
+
+"ZURAT_DEREH_1" = "כניסה למחלף";
+"ZURAT_DEREH_2" = "ביציאה ממחלף";
+"ZURAT_DEREH_3" = "מ.חניה/ת. דלק";
+"ZURAT_DEREH_4" = "שיפוע תלול";
+"ZURAT_DEREH_5" = "עקום חד";
+"ZURAT_DEREH_6" = "על גשר מנהרה";
+"ZURAT_DEREH_7" = "מפגש מסילת ברזל";
+"ZURAT_DEREH_8" = "כביש ישר/צומת";
+"ZURAT_DEREH_9" = "אחר";
+
+"HAD_MASLUL_1" = "חד סיטרי";
+"HAD_MASLUL_2" = "דו סיטרי+קו הפרדה רצוף";
+"HAD_MASLUL_3" = "דו סיטרי אין קו הפרדה רצוף";
+"HAD_MASLUL_4" = "אחר";
+
+"RAV_MASLUL_1" = "מיפרדה מסומנת בצבע";
+"RAV_MASLUL_2" = "מיפרדה עם גדר בטיחות";
+"RAV_MASLUL_3" = "מיפרדה בנויה ללא גדר בטיחות";
+"RAV_MASLUL_4" = "מיפרדה לא בנויה";
+"RAV_MASLUL_5" = "אחר";
+
+"MEHIRUT_MUTERET_1" = "under 50 km/h";
+"MEHIRUT_MUTERET_2" = "60 km/h";
+"MEHIRUT_MUTERET_3" = "70 km/h";
+"MEHIRUT_MUTERET_4" = "80 km/h";
+"MEHIRUT_MUTERET_5" = "90 km/h";
+"MEHIRUT_MUTERET_6" = "100 km/h";
+
+"TKINUT_1" = "אין ליקוי";
+"TKINUT_2" = "שוליים גרועים";
+"TKINUT_3" = "כביש משובש";
+"TKINUT_4" = "שוליים גרועים וכביש משובש";
+
+"ROHAV_1" = "under 5 meter";
+"ROHAV_2" = "5-7 metes";
+"ROHAV_3" = "7-10.5 meters";
+"ROHAV_4" = "10.5-14 meters";
+"ROHAV_5" = "14 meters or more";
+
+"SIMUN_TIMRUR_1" = "סימון לקוי/חסר";
+"SIMUN_TIMRUR_2" = "תימרור לקוי/חסר";
+"SIMUN_TIMRUR_3" = "אין ליקוי";
+"SIMUN_TIMRUR_4" = "לא נדרש תמרור";
+
+"TEURA_1" = "אור יום רגיל";
+"TEURA_2" = "ראות מוגבלת עקב מזג אויר (עשן;ערפל)";
+"TEURA_3" = "לילה פעלה תאורה";
+"TEURA_4" = "קיימת תאורה בלתי תקינה/לא פועלת";
+"TEURA_5" = "לילה לא קיימת תאורה";
+
+"BAKARA_1" = "אין בקרה";
+"BAKARA_2" = "רמזור תקין";
+"BAKARA_3" = "רמזור מהבהב צהוב";
+"BAKARA_4" = "רמזור לא תקין";
+"BAKARA_5" = "תמרור עצור";
+"BAKARA_6" = "תמרור זכות קדימה";
+"BAKARA_7" = "אחר";
+
+"MEZEG_AVIR_1" = "בהיר";
+"MEZEG_AVIR_2" = "גשום";
+"MEZEG_AVIR_3" = "שרבי";
+"MEZEG_AVIR_4" = "ערפילי";
+"MEZEG_AVIR_5" = "אחר";
+
+"PNE_KVISH_1" = "יבש";
+"PNE_KVISH_2" = "רטוב ממים";
+"PNE_KVISH_3" = "מרוח בחומר דלק";
+"PNE_KVISH_4" = "מכוסה בבוץ";
+"PNE_KVISH_5" = "חול או חצץ על הכביש";
+"PNE_KVISH_6" = "אחר";
+
+"SUG_EZEM_1" = "עץ";
+"SUG_EZEM_2" = "עמוד חשמל/תאורה/טלפון";
+"SUG_EZEM_3" = "תמרור ושלט";
+"SUG_EZEM_4" = "גשר סימניו ומגיניו";
+"SUG_EZEM_5" = "מבנה";
+"SUG_EZEM_6" = "גדר בטיחות לרכב";
+"SUG_EZEM_7" = "חבית";
+"SUG_EZEM_8" = "אחר";
+
+"MERHAK_EZEM_1" = "עד מטר";
+"MERHAK_EZEM_2" = "1-3 מטר";
+"MERHAK_EZEM_3" = "על הכביש";
+"MERHAK_EZEM_4" = "על שטח הפרדה";
+
+"LO_HAZA_1" = "הלך בכיוון התנועה";
+"LO_HAZA_2" = "הלך נגד";
+"LO_HAZA_3" = "שיחק על הכביש";
+"LO_HAZA_4" = "עמד על הכביש";
+"LO_HAZA_5" = "היה על אי הפרדה";
+"LO_HAZA_6" = "היה על שוליים/מדרכה";
+"LO_HAZA_7" = "אחר";
+
+"OFEN_HAZIYA_1" = "התפרץ אל הכביש";
+"OFEN_HAZIYA_2" = "חצה שהוא מוסתר";
+"OFEN_HAZIYA_3" = "חצה רגיל";
+"OFEN_HAZIYA_4" = "אחר";
+
+"MEKOM_HAZIYA_1" = "לא במעבר חציה ליד צומת";
+"MEKOM_HAZIYA_2" = "לא במעבר חציה לא ליד צומת";
+"MEKOM_HAZIYA_3" = "במעבר חציה בלי רמזור";
+"MEKOM_HAZIYA_4" = "במעבר חציה עם רמזור";
+
+"KIVUN_HAZIYA_1" = "מימין לשמאל";
+"KIVUN_HAZIYA_2" = "משמאל לימין";
+
+"STATUS_IGUN_1" = "עיגון מדויק";
+"STATUS_IGUN_2" = "מרכז ישוב";
+"STATUS_IGUN_3" = "מרכז דרך";
+"STATUS_IGUN_4" = "מרכז קילומטר";
+"STATUS_IGUN_9" = "לא עוגן";
+
