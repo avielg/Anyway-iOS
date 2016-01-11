@@ -294,19 +294,19 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minor collision with a parked vehicle occured." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lD7-9x-NG8">
                                                     <rect key="frame" x="20" y="8" width="280" height="48"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="249" verticalCompressionResistancePriority="755" text="Source:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5j-wZ-fdu" propertyAccessControl="none">
                                                     <rect key="frame" x="20" y="64" width="52.5" height="26.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="760" text="Tuesday, October 21, 7:00 am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4t-q9-Nis">
                                                     <rect key="frame" x="20" y="96.5" width="280" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="755" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hak-ZF-in4">
@@ -354,7 +354,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyf-jI-jFl">
                                                     <rect key="frame" x="55" y="21" width="61.5" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -383,13 +383,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" text="Road type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQt-Zb-Rel">
                                                     <rect key="frame" x="8" y="8" width="84.5" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Urban, not an intersection" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LV7-lh-mO9">
                                                     <rect key="frame" x="100.5" y="8" width="211.5" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -519,13 +519,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="770" verticalCompressionResistancePriority="250" text="Hasadna" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jdk-sO-5fr">
-                                        <rect key="frame" x="93" y="716" width="120" height="37"/>
+                                        <rect key="frame" x="101" y="726" width="120" height="37"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="31"/>
                                         <color key="textColor" red="0.070588235294117646" green="0.55294117647058827" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="sadna_logo" translatesAutoresizingMaskIntoConstraints="NO" id="g6g-zS-DDt">
-                                        <rect key="frame" x="15" y="712" width="66" height="66"/>
+                                        <rect key="frame" x="20" y="712" width="66" height="66"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="g6g-zS-DDt" secondAttribute="height" multiplier="1:1" id="lMp-gi-X7E"/>
                                         </constraints>
@@ -543,28 +543,28 @@ ANYWAY הוא חשמביר (פרויקט) הפועל בחסות הסדנא לי�
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="770" verticalCompressionResistancePriority="250" text="The Workshop for Public Knowledge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="W6a-lU-jj5">
-                                        <rect key="frame" x="93" y="753" width="219" height="26.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="770" verticalCompressionResistancePriority="250" text="The Workshop for Public Knowledge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="W6a-lU-jj5">
+                                        <rect key="frame" x="101" y="763" width="211" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                         <color key="textColor" red="0.070588235289999995" green="0.55294117649999996" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="n5a-xP-CVv" firstAttribute="top" secondItem="nxh-xy-J7Q" secondAttribute="bottom" constant="20" id="40y-Le-4sO"/>
-                                    <constraint firstItem="Jdk-sO-5fr" firstAttribute="leading" secondItem="g6g-zS-DDt" secondAttribute="trailing" constant="12" id="75Q-tj-UEA"/>
+                                    <constraint firstItem="Jdk-sO-5fr" firstAttribute="leading" secondItem="g6g-zS-DDt" secondAttribute="trailing" constant="15" id="75Q-tj-UEA"/>
                                     <constraint firstItem="W6a-lU-jj5" firstAttribute="leading" secondItem="Jdk-sO-5fr" secondAttribute="leading" id="BAV-7K-cBh"/>
                                     <constraint firstItem="c5w-2M-nJU" firstAttribute="top" secondItem="Em2-NV-DRo" secondAttribute="bottom" constant="4" id="FTW-5y-jJP"/>
                                     <constraint firstItem="Em2-NV-DRo" firstAttribute="leading" secondItem="i2U-g3-eNt" secondAttribute="leading" constant="51" id="FxX-5l-zG8"/>
                                     <constraint firstItem="nxh-xy-J7Q" firstAttribute="leading" secondItem="i2U-g3-eNt" secondAttribute="leading" constant="20" id="GBB-iN-QJu"/>
                                     <constraint firstAttribute="bottom" secondItem="g6g-zS-DDt" secondAttribute="bottom" constant="43" id="GaP-BU-9gb"/>
-                                    <constraint firstItem="g6g-zS-DDt" firstAttribute="leading" secondItem="i2U-g3-eNt" secondAttribute="leading" constant="15" id="LkK-ks-auI"/>
+                                    <constraint firstItem="g6g-zS-DDt" firstAttribute="leading" secondItem="i2U-g3-eNt" secondAttribute="leading" constant="20" id="LkK-ks-auI"/>
+                                    <constraint firstItem="Jdk-sO-5fr" firstAttribute="top" secondItem="g6g-zS-DDt" secondAttribute="top" constant="14" id="VGt-Sj-Ztp"/>
                                     <constraint firstItem="g6g-zS-DDt" firstAttribute="top" secondItem="wcD-nt-HIs" secondAttribute="bottom" constant="20" id="XUv-lq-Hqb"/>
                                     <constraint firstAttribute="trailing" secondItem="W6a-lU-jj5" secondAttribute="trailing" constant="8" id="Yek-XL-2lS"/>
                                     <constraint firstAttribute="centerX" secondItem="wcD-nt-HIs" secondAttribute="centerX" id="YtM-8f-QUt"/>
                                     <constraint firstItem="wcD-nt-HIs" firstAttribute="top" secondItem="SQC-Jd-2iJ" secondAttribute="bottom" constant="8" id="aLv-Fi-c3H"/>
                                     <constraint firstAttribute="trailing" secondItem="Em2-NV-DRo" secondAttribute="trailing" constant="51" id="bT1-vq-G33"/>
-                                    <constraint firstItem="Jdk-sO-5fr" firstAttribute="top" secondItem="g6g-zS-DDt" secondAttribute="top" constant="4" id="dA6-cm-jKi"/>
                                     <constraint firstAttribute="trailing" secondItem="SQC-Jd-2iJ" secondAttribute="trailing" constant="16" id="hXa-6l-Uas"/>
                                     <constraint firstAttribute="width" secondItem="SQC-Jd-2iJ" secondAttribute="width" constant="36" id="lKY-bn-aXc"/>
                                     <constraint firstItem="Em2-NV-DRo" firstAttribute="top" secondItem="n5a-xP-CVv" secondAttribute="bottom" constant="8" id="ouB-C6-nuw"/>
@@ -623,14 +623,14 @@ ANYWAY הוא חשמביר (פרויקט) הפועל בחסות הסדנא לי�
                                                     <rect key="frame" x="15" y="6" width="31.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wcy-XN-987">
                                                     <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
