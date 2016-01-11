@@ -33,7 +33,13 @@ enum Localization {
     
     subscript(val: Int) -> String? {
         let localKey = "\(self)_\(val)"
-        return local(localKey)
+        let result = local(localKey)
+        
+        // when no localized string found, we get
+        // back the code we sent to 'local()'.
+        // When this happens - pass an empty string
+        // to the caller.
+        return result.hasPrefix("\(self)") ? "" : result
     }
     
 }
@@ -42,7 +48,7 @@ var staticFieldNames = [
     "INNER_PERSON_TITLE": "תיאור נפגע",
     "INNER_VEHICLE_TITLE": "תיאור רכב",
     "pk_teuna_fikt": "מזהה",
-    "SUG_DEREH": "סוג דרך",
+    "SUG_DERECH": "סוג דרך",
     "SHEM_ZOMET": "שם צומת",
     "SEMEL_YISHUV": "ישוב",
     "REHOV1": "רחוב 1",

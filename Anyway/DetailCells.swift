@@ -91,7 +91,7 @@ class DetailCellInfo: DetailCell {
     override func setInfo(marker: Marker?) {
         guard let path = indexPath else {return}
         
-        labelTitle.text = StaticData.title(atIndex: path, persons: persons, vehicles: vehicles)
+        labelTitle.text = StaticData.title(marker, atIndex: path, persons: persons, vehicles: vehicles)
         labelInfo.text = StaticData.info(marker, atIndex: path, persons: persons, vehicles: vehicles)
     }
     
@@ -116,23 +116,14 @@ private struct StaticData {
         }
     }
     
-    static func title(atIndex indexPath: NSIndexPath, persons: [Person], vehicles: [Vehicle]) -> String {
+    static func title(marker: Marker?, atIndex indexPath: NSIndexPath, persons: [Person], vehicles: [Vehicle]) -> String {
         switch (indexPath.section, indexPath.row) {
             case (1, 1): return "מספר סידורי"
             case (1, 2): return "סוג תיק"
             case (1, 3): return "חומרת תאונה"
             case (1, 4): return "סוג תאונה"
             
-            case (2, 1): return "סוג דרך"
-            case (2, 2): return "צורת דרך"
-            case (2, 3): return "חד מסלול"
-            case (2, 4): return "מהירות מותרת"
-            case (2, 5): return "תקינות"
-            case (2, 6): return "רוחב"
-            case (2, 7): return "סימון תמרור"
-            case (2, 8): return "תאורה"
-            case (2, 9): return "בקרה"
-            case (2, 10): return "מזג אוויר"
+            case (2, let i): return marker?.roadConditionData.safeRetrieveElement(i)?.0 ?? ""
             
             case (3, 1): return "תאריך"
             case (3, 2): return "סוג יום"
@@ -202,16 +193,7 @@ private struct StaticData {
         case (1, 3): return data.localizedSeverity
         case (1, 4): return data.localizedSubtype
             
-        case (2, 1): return Localization.SUG_DERECH[data.roadType] ?? ""
-        case (2, 2): return Localization.ZURAT_DEREH[data.roadShape] ?? ""
-        case (2, 3): return Localization.HAD_MASLUL[data.one_lane] ?? ""
-        case (2, 4): return Localization.MEHIRUT_MUTERET[data.speed_limit] ?? ""
-        case (2, 5): return Localization.TKINUT[data.intactness] ?? ""
-        case (2, 6): return Localization.ROHAV[data.road_width] ?? ""
-        case (2, 7): return Localization.SIMUN_TIMRUR[data.road_sign] ?? ""
-        case (2, 8): return Localization.TEURA[data.road_light] ?? ""
-        case (2, 9): return Localization.BAKARA[data.road_control] ?? ""
-        case (2, 10): return Localization.MEZEG_AVIR[data.weather] ?? ""
+        case (2, let i): return marker?.roadConditionData.safeRetrieveElement(i)?.1 ?? ""
             
         case (3, 1): return "\(data.created.longDate), \(data.created.shortTime)"
         case (3, 2): return Localization.SUG_YOM[data.dayType] ?? ""
