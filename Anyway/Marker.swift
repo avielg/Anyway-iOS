@@ -83,48 +83,15 @@ extension Marker: VisualMarker {
     //MARK: Localized Info
     
     var localizedSubtype: String {
-        switch self.subtype {
-        case 1: return "פגיעה בהולך רגל"
-        case 2: return "התנגשות חזית אל צד"
-        case 3: return "התנגשות חזית באחור"
-        case 4: return "התנגשות צד בצד"
-        case 5: return "התנגשות חזית אל חזית"
-        case 6: return "התנגשות עם רכב חונה"
-        case 7: return "התנגשות עם עצם דומם"
-        case 8: return "ירידה מהכביש או עלייה למדרכה"
-        case 9: return "ירידה מהכביש או עלייה למדרכה"
-        case 10: return "התהפכות"
-        case 11: return "החלקה"
-        case 12: return "פגיעה בנוסע בתוך כלי רכב"
-        case 13: return "נפילה ברכב נע"
-        case 14: return "שריפה"
-        case 15: return "אחר"
-        case 17: return "התנגשות אחור אל חזית"
-        case 18: return "התנגשות אחור אל צד"
-        case 19: return "התנגשות עם בעל חיים"
-        case 20: return "פגיעה ממטען של רכב"
-        default: return ""
-        }
+        return Localization.SUG_TEUNA[subtype] ?? ""
     }
     
     var localizedSeverity: String {
-        switch self.severity {
-        case 1: return "קטלנית"
-        case 2: return "קשה"
-        case 3: return "קלה"
-        default: return ""
-        }
+        return Localization.HUMRAT_TEUNA[severity] ?? ""
     }
     
     var localizedAccuracy: String {
-        switch self.locationAccuracy {
-        case 1: return "עיגון מדויק"
-        case 2: return "מרכז ישוב"
-        case 3: return "מרכז דרך"
-        case 4: return "מרכז קילומטר"
-        case 9: return "לא עוגן"
-        default: return ""
-        }
+        return Localization.STATUS_IGUN[locationAccuracy] ?? ""
     }
     
     
