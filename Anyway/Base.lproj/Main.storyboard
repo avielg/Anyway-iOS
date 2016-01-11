@@ -352,7 +352,7 @@
                                                     <rect key="frame" x="15" y="9" width="32" height="47"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyf-jI-jFl">
-                                                    <rect key="frame" x="55" y="21" width="248" height="24"/>
+                                                    <rect key="frame" x="55" y="21" width="61.5" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -360,10 +360,8 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.85882352939999995" green="0.85882352939999995" blue="0.85882352939999995" alpha="0.19722450657894736" colorSpace="deviceRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Fex-Oc-l0F" secondAttribute="trailing" constant="273" id="3w4-74-Ean"/>
                                                 <constraint firstItem="tyf-jI-jFl" firstAttribute="top" secondItem="rH6-ij-ZCJ" secondAttribute="top" constant="21" id="9HS-bh-6wD"/>
-                                                <constraint firstItem="Fex-Oc-l0F" firstAttribute="leading" secondItem="tyf-jI-jFl" secondAttribute="trailing" constant="-288" id="Mgm-pK-965"/>
-                                                <constraint firstItem="tyf-jI-jFl" firstAttribute="leading" secondItem="rH6-ij-ZCJ" secondAttribute="leading" constant="55" id="dj2-wB-QUw"/>
+                                                <constraint firstItem="Fex-Oc-l0F" firstAttribute="leading" secondItem="rH6-ij-ZCJ" secondAttribute="leadingMargin" constant="7" id="cTy-GE-5Bv"/>
                                                 <constraint firstItem="Fex-Oc-l0F" firstAttribute="top" secondItem="rH6-ij-ZCJ" secondAttribute="top" constant="9" id="fWY-Sb-eWj"/>
                                                 <constraint firstAttribute="bottom" secondItem="Fex-Oc-l0F" secondAttribute="bottom" constant="9" id="jmj-zb-jnH"/>
                                                 <constraint firstItem="tyf-jI-jFl" firstAttribute="leading" secondItem="Fex-Oc-l0F" secondAttribute="trailing" constant="8" symbolic="YES" id="oM2-YT-U6W"/>
