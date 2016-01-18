@@ -26,6 +26,9 @@
 /* Class = "UIBarButtonItem"; title = "פילטר"; ObjectID = "Tu4-cE-oea"; */
 "Tu4-cE-oea.title" = "פילטר";
 
+/* Class = "UILabel"; text = "The Workshop for Public Knowledge"; ObjectID = "W6a-lU-jj5"; */
+"W6a-lU-jj5.text" = "";
+
 /* Class = "UILabel"; text = "משפיעים בכל דרך"; ObjectID = "c5w-2M-nJU"; */
 "c5w-2M-nJU.text" = "משפיעים בכל דרך";
 
