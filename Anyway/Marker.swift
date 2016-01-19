@@ -76,38 +76,23 @@ class Marker : NSObject, MarkerAnnotation {
 
 /// Helper methods to determine which information
 /// is available for presentation.
-extension Marker {
+extension Marker: PairsData {
     
-    typealias Title = String
-    typealias Detail = String
     var roadConditionData: [(Title, Detail)] {
-        
-        //make the pairs
         return [
-            pair(forType: .SUG_DERECH, value: roadType),
-            pair(forType: .ZURAT_DEREH, value: roadShape),
-            pair(forType: .HAD_MASLUL, value: one_lane),
-            pair(forType: .MEHIRUT_MUTERET, value: speed_limit),
-            pair(forType: .TKINUT, value: intactness),
-            pair(forType: .ROHAV, value: road_width),
-            pair(forType: .SIMUN_TIMRUR, value: road_sign),
-            pair(forType: .TEURA, value: road_light),
-            pair(forType: .BAKARA, value: road_control),
-            pair(forType: .MEZEG_AVIR, value: weather)
+            Marker.pair(forType: .SUG_DERECH, value: roadType),
+            Marker.pair(forType: .ZURAT_DEREH, value: roadShape),
+            Marker.pair(forType: .HAD_MASLUL, value: one_lane),
+            Marker.pair(forType: .MEHIRUT_MUTERET, value: speed_limit),
+            Marker.pair(forType: .TKINUT, value: intactness),
+            Marker.pair(forType: .ROHAV, value: road_width),
+            Marker.pair(forType: .SIMUN_TIMRUR, value: road_sign),
+            Marker.pair(forType: .TEURA, value: road_light),
+            Marker.pair(forType: .BAKARA, value: road_control),
+            Marker.pair(forType: .MEZEG_AVIR, value: weather)
             ].flatMap{ $0 }
-        
     }
     
-    private func pair(forType type: Localization, value: Int) -> (Title, Detail)? {
-        guard let
-            field = staticFieldNames["\(type)"],
-            result = type[value]
-            where result.isEmpty == false
-            else { return nil }
-        
-        return (field, result)
-    }
-
 }
 
 /// Implement "subtitle" param declared in 'MKAnnotation'

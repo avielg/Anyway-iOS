@@ -10,12 +10,33 @@ import Foundation
 import SwiftyJSON
 
 protocol RawInfo {
-    var info: [(String, String)] { get } //(title key, content)
+    
+    // title key for presenting one unit of info (e.g., "Vehicle", "Person")
+    var innerTitleKey: String { get }
+    
+     //(title key, content)
+    var info: [(String, String)] { get }
+}
+
+extension Vehicle: PairsData {
+    
+    static func buildVehicleDescriptionData(unparsedInfo: [(String, String)]) -> [(Title, Detail)] {
+        return unparsedInfo.map{ (rawTitle, rawValue) in
+            switch rawTitle {
+            case "MATZAV_REHEV": return pair(forType: .MATZAV_REHEV, value: Int(rawValue) ?? -1)
+            case "SHIYUH_REHEV_LMS": return pair(forType: .SHIYUH_REHEV_LMS, value: Int(rawValue) ?? -1)
+            case "SUG_REHEV_LMS": return pair(forType: .SUG_REHEV_LMS, value: Int(rawValue) ?? -1)
+            default: return (staticFieldNames[rawTitle]!, rawValue)
+            }
+        }.flatMap{ $0 }
+    }
+    
 }
 
 class Vehicle: RawInfo {
     
-    let info: [(String, String)] //(title key, content
+    var innerTitleKey: String { return "INNER_VEHICLE_TITLE" }
+    var info: [(String, String)] = []
     
     init(json: JSON, index: Int) {
         
@@ -34,7 +55,7 @@ class Vehicle: RawInfo {
         // Build the actuall info:
         // For values that are string > leave as is
         // For number > parse to the actual value
-        let finalInfo = [("INNER_VEHICLE_TITLE", "\(index)")] + rawInfo.map { (local, jsonKey) in
+        let finalInfo = [(innerTitleKey, "\(index)")] + rawInfo.map { (local, jsonKey) in
             
             let value: String
             
@@ -47,12 +68,11 @@ class Vehicle: RawInfo {
             }
             
             return (local, value)
-            } as [(String, String)]
+        } as [(String, String)]
         
         
         // Set the info to self
-        self.info = finalInfo
-        
+        self.info = Vehicle.buildVehicleDescriptionData(finalInfo)
         
         /*
         
@@ -67,7 +87,6 @@ class Vehicle: RawInfo {
         "accident_id":2014000964,
         "total_weight":"עד 1.9",
         "driving_directions":"\tממזרח למערב"
-        
         
         */
     }

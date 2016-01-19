@@ -91,7 +91,19 @@ class DetailCellInfo: DetailCell {
     override func setInfo(marker: Marker?) {
         guard let path = indexPath else {return}
         
-        labelTitle.text = StaticData.title(marker, atIndex: path, persons: persons, vehicles: vehicles)
+        // get title and row type for this marker at this index path
+        let (title, rowType) = StaticData.title(marker, atIndex: path, persons: persons, vehicles: vehicles)
+        
+        // set the title
+        labelTitle.text = title
+        
+        // make inter-titles a stand out a bit
+        switch rowType {
+        case .IntermediateTitle: self.contentView.alpha = 1
+        case .Info: self.contentView.alpha = 0.6
+        }
+        
+        // set the info itself
         labelInfo.text = StaticData.info(marker, atIndex: path, persons: persons, vehicles: vehicles)
     }
     
@@ -116,50 +128,44 @@ private struct StaticData {
         }
     }
     
-    static func title(marker: Marker?, atIndex indexPath: NSIndexPath, persons: [Person], vehicles: [Vehicle]) -> String {
+    enum InfoRowType {
+        case Info, IntermediateTitle
+    }
+    
+    static func title(marker: Marker?, atIndex indexPath: NSIndexPath, persons: [Person], vehicles: [Vehicle]) -> (String, InfoRowType) {
         switch (indexPath.section, indexPath.row) {
-            case (1, 1): return "מספר סידורי"
-            case (1, 2): return "סוג תיק"
-            case (1, 3): return "חומרת תאונה"
-            case (1, 4): return "סוג תאונה"
+            case (1, 1): return ("מספר סידורי", .Info)
+            case (1, 2): return ("סוג תיק", .Info)
+            case (1, 3): return ("חומרת תאונה", .Info)
+            case (1, 4): return ("סוג תאונה", .Info)
             
-            case (2, let i): return marker?.roadConditionData.safeRetrieveElement(i)?.0 ?? ""
+            case (2, let i): return (marker?.roadConditionData.safeRetrieveElement(i)?.0 ?? "", .Info)
             
-            case (3, 1): return "תאריך"
-            case (3, 2): return "סוג יום"
-            case (3, 3): return "" // address (no title on website design)
+            case (3, 1): return ("תאריך", .Info)
+            case (3, 2): return ("סוג יום", .Info)
+            case (3, 3): return ("", .Info) // address (no title on website design)
             
             case (4, let i): return fieldName(i, rawInfos: persons)
             case (5, let i): return fieldName(i, rawInfos: vehicles)
             
-            case (6, 1): return "עיגון"
-            case (6, 2): return "יחידה"
+            case (6, 1): return ("עיגון", .Info)
+            case (6, 2): return ("יחידה", .Info)
 
-//        case 1: return "כותרת"
-//        case 2: return "כתובת"
-//        case 3: return "תיאור"
-//        case 4: return "כותרת תאונה"
-//        case 5: return "תאריך"
-//        case 6: return "עוקבים"
-//        case 7: return "עוקב"
-//        case 8: return "ID"
-//        case 9: return "רמת דיוק"
-//        case 10: return "חומרה"
-//        case 11: return "תת סוג"
-//        case 12: return "סוג"
-//        case 13: return "משתמש"
-//        case 14: return "מיקום"
-        default: return ""
+            default: return ("", .Info)
         }
     }
     
-    static func fieldName<T: RawInfo>(row: Int, rawInfos: [T]) -> String {
+    static func fieldName<T: RawInfo>(row: Int, rawInfos: [T]) -> (String, InfoRowType) {
         guard let
             info = infoData(row, rawInfos: rawInfos),
-            field = staticFieldNames[info.0]
-        else { return "UNKNOWN FIELD" }
+            titleKey = rawInfos.first?.innerTitleKey
+            else { return ("UNKNOWN FIELD", .Info) }
         
-        return field
+        
+        if info.0 == staticFieldNames[titleKey] {
+            return (info.0, .IntermediateTitle)
+        }
+        return (info.0, .Info)
     }
     
     static func fieldValue<T: RawInfo>(row: Int, rawInfos: [T]) -> String {
@@ -173,14 +179,11 @@ private struct StaticData {
     static func infoData<T: RawInfo>(var row: Int, rawInfos: [T]) -> (String, String)? {
         
         row-- // row 0 is the "header" cell, so we begin from 1 instead 0...
+        assert(row >= 0, "row must never be less than zero here")
         
-        for p in rawInfos {
-            if row < p.info.count {
-                return p.info[row]
-            }
-            row -= p.info.count
-        }
-        return nil
+        let infos = rawInfos.flatMap{ $0.info }
+        return infos.safeRetrieveElement(row)
+        
     }
     
     static func info(marker: Marker?, atIndex indexPath: NSIndexPath, persons: [Person], vehicles: [Vehicle]) -> String {

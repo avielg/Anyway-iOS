@@ -30,6 +30,9 @@
 "YEHIDA_52" = "מרחב השפלה";
 "YEHIDA_61" = "מחוז ירושלים";
 
+
+// ### Road Conditions ###
+
 "SUG_YOM_1" = "חג";
 "SUG_YOM_2" = "ערב חג";
 "SUG_YOM_3" = "חול המועד";
@@ -172,3 +175,135 @@
 "STATUS_IGUN_4" = "מרכז קילומטר";
 "STATUS_IGUN_9" = "לא עוגן";
 
+
+// ### Vehicle description titles ###
+
+// State (stolen, rent etc.)
+"MATZAV_REHEV_1" = "גנוב";
+"MATZAV_REHEV_2" = "השכרה";
+"MATZAV_REHEV_3" = "לימוד";
+"MATZAV_REHEV_4" = "הסעת ילדים";
+
+// Association (police, citizen, diplomatic etc.)
+"SHIYUH_REHEV_LMS_0" = "לא מנועי";
+"SHIYUH_REHEV_LMS_1" = "ישראלי";
+"SHIYUH_REHEV_LMS_2" = "צבאי";
+"SHIYUH_REHEV_LMS_3" = "משטרתי";
+"SHIYUH_REHEV_LMS_4" = "זר";
+"SHIYUH_REHEV_LMS_5" = "דיפלומטי";
+"SHIYUH_REHEV_LMS_6" = "יש״ע";
+"SHIYUH_REHEV_LMS_9" = "אלמוני";
+
+// Type (private, truck etc.)
+"SUG_REHEV_LMS_1" = "רכב נוסעים פרטי";
+"SUG_REHEV_LMS_2" = "משא עד 4 טון אחוד";
+"SUG_REHEV_LMS_3" = "משא עד 4 טון לא אחוד";
+"SUG_REHEV_LMS_4" = "משא 1.4 עד 9.9 טון משקל כולל";
+"SUG_REHEV_LMS_5" = "משא 10 עד 15.9 טון משקל כולל";
+"SUG_REHEV_LMS_6" = "משא 16 עד 33.9 טון משקל כולל";
+"SUG_REHEV_LMS_7" = "משא 34.0+טון משקל כולל";
+"SUG_REHEV_LMS_8" = "אופנוע עד 50 סמ״ק";
+"SUG_REHEV_LMS_9" = "אופנוע 51 עד 250 סמ״ק";
+"SUG_REHEV_LMS_10" = "אופנוע 251 עד 500 סמ״ק";
+"SUG_REHEV_LMS_11" = "אוטובוס";
+"SUG_REHEV_LMS_12" = "מונית";
+"SUG_REHEV_LMS_13" = "רכב עבודה";
+"SUG_REHEV_LMS_14" = "טרקטור";
+"SUG_REHEV_LMS_15" = "אופניים";
+"SUG_REHEV_LMS_16" = "רכבת";
+"SUG_REHEV_LMS_17" = "אחר";
+"SUG_REHEV_LMS_18" = "אוטובוס זעיר";
+"SUG_REHEV_LMS_19" = "אופנוע מעל 500 סמ״ק";
+
+
+// ### Person Involved Description Titles ###
+
+// Type (driver, didn't hurt, passengar)
+"SUG_MEORAV_1" = "נהג שלא נפגע";
+"SUG_MEORAV_2" = "נהג נפגע";
+"SUG_MEORAV_3" = "נפגע שאינו נהג";
+
+// Sex
+"MIN_1" = "זכר";
+"MIN_2" = "נקבה";
+
+// Car type drove
+"SUG_REHEV_NASA_LMS_1" = "רכב נוסעים פרטי";
+"SUG_REHEV_NASA_LMS_2" = "משא עד 3.5 טון אחוד";
+"SUG_REHEV_NASA_LMS_3" = "משא עד 3.5 טון לא אחוד";
+"SUG_REHEV_NASA_LMS_4" = "משא 1.4 עד 9.9 טון משקל כולל";
+"SUG_REHEV_NASA_LMS_5" = "משא 10 עד 15.9 טון משקל כולל";
+"SUG_REHEV_NASA_LMS_6" = "משא 16 עד 33.9 טון משקל כולל";
+"SUG_REHEV_NASA_LMS_7" = "משא 34.0+טון משקל כולל";
+"SUG_REHEV_NASA_LMS_8" = "אופנוע עד 50 סמ״ק";
+"SUG_REHEV_NASA_LMS_9" = "אופנוע 51 עד 250 סמ״ק";
+"SUG_REHEV_NASA_LMS_10" = "אופנוע 251 עד 500 סמ״ק";
+"SUG_REHEV_NASA_LMS_11" = "אוטובוס";
+"SUG_REHEV_NASA_LMS_12" = "מונית";
+"SUG_REHEV_NASA_LMS_13" = "רכב עבודה";
+"SUG_REHEV_NASA_LMS_14" = "טרקטור";
+"SUG_REHEV_NASA_LMS_15" = "אופניים";
+"SUG_REHEV_NASA_LMS_16" = "רכבת";
+"SUG_REHEV_NASA_LMS_17" = "אחר";
+"SUG_REHEV_NASA_LMS_18" = "אוטובוס זעיר";
+"SUG_REHEV_NASA_LMS_19" = "אופנוע 501+ סמ״ק";
+
+// Safety Measure (belt, helmet, none etc.)
+"EMZAE_BETIHUT_1" = "חגר חגורה";
+"EMZAE_BETIHUT_2" = "חבש קסדת מגן (רק לאופנוע)";
+"EMZAE_BETIHUT_3" = "ישב במושב/ריתמה לילדים (רק לנפגע ילד)";
+"EMZAE_BETIHUT_4" = "לא השתמש באמצעי";
+"EMZAE_BETIHUT_5" = "לא ידוע";
+
+// Severity (killed, injured, easy injure)
+"HUMRAT_PGIA_1" = "הרוג";
+"HUMRAT_PGIA_2" = "פצוע קשה";
+"HUMRAT_PGIA_3" = "פצוע קל";
+
+// Preson type (pedestrian, drived, motor/bycicle driver etc)
+"SUG_NIFGA_LMS_1" = "הולך רגל";
+"SUG_NIFGA_LMS_2" = "נהג-רכב בעל 4+ גלגלים";
+"SUG_NIFGA_LMS_3" = "נוסע- רכב בעל 4+ גלגלים";
+"SUG_NIFGA_LMS_4" = "נהג-אופנוע";
+"SUG_NIFGA_LMS_5" = "נוסע-אופנוע (לא נהג)";
+"SUG_NIFGA_LMS_6" = "נהג-אופניים";
+"SUG_NIFGA_LMS_7" = "נוסע-אופניים (לא נהג)";
+"SUG_NIFGA_LMS_8" = "נהג-רכב לא ידוע";
+"SUG_NIFGA_LMS_9" = "נוסע-רכב לא ידוע";
+
+// Action (sitting front seat, got off car, walking etc.)
+"PEULAT_NIFGA_LMS_1" = "ישב ברכב במושב קדמי";
+"PEULAT_NIFGA_LMS_2" = "ישב ברכב במושב אחורי";
+"PEULAT_NIFGA_LMS_3" = "ישב ברכב בארגז מאחור";
+"PEULAT_NIFGA_LMS_4" = "עמד ברכב";
+"PEULAT_NIFGA_LMS_5" = "עלה לרכב";
+"PEULAT_NIFGA_LMS_6" = "ירד מהרכב";
+"PEULAT_NIFGA_LMS_7" = "פעולה אחרת";
+"PEULAT_NIFGA_LMS_8" = "לא ידוע";
+"PEULAT_NIFGA_LMS_9" = "הולך רגל";
+
+// Hospitalization (upto 24hr, more than 24hr)
+"PAZUA_USHPAZ_1" = "אשפוז עד 24 שעות";
+"PAZUA_USHPAZ_2" = "אשפוז מעל 24 שעות";
+
+// Medical State (easy, medium, harsh etc.)
+"MADAD_RAFUI_1" = "קל (1-8)";
+"MADAD_RAFUI_2" = "בינוני (9-15)";
+"MADAD_RAFUI_3" = "קשה (16-24)";
+"MADAD_RAFUI_4" = "קשה מאוד (25-75)";
+
+// Released to... (home, other hospital, death etc.)
+"YAAD_SHIHRUR_1" = "בית";
+"YAAD_SHIHRUR_2" = "בית חולים אחר";
+"YAAD_SHIHRUR_3" = "מוסד שיקומי/ מחלקה שיקומית";
+"YAAD_SHIHRUR_4" = "מוות";
+"YAAD_SHIHRUR_5" = "אחר";
+
+// DId use safety measure (yes, no, unknown)
+"SHIMUSH_BE_AVIZAREY_BETIHOT_1" = "כן";
+"SHIMUSH_BE_AVIZAREY_BETIHOT_2" = "לא";
+"SHIMUSH_BE_AVIZAREY_BETIHOT_3" = "לא ידוע";
+
+// Late passing (upto 30 days later, more than 30 days later)
+"PTIRA_MEUHERET_1" = "פטירה רגילה עד 30 יום";
+"PTIRA_MEUHERET_2" = "פטירה מאוחרת מעל 30 יום";

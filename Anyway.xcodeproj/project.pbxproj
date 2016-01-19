@@ -12,6 +12,7 @@
 		30367E9D1A9D006400B16DA1 /* OCDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 30367E971A9D006400B16DA1 /* OCDistance.m */; };
 		30367E9E1A9D006400B16DA1 /* OCMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30367E9A1A9D006400B16DA1 /* OCMapView.m */; };
 		30367EA31A9D0AEB00B16DA1 /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30367EA21A9D0AEB00B16DA1 /* InsetLabel.swift */; };
+		305563E91C4D6E2800FAC3A2 /* PairsDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305563E81C4D6E2800FAC3A2 /* PairsDataProtocol.swift */; };
 		30568A8F1C0CDA5C00471D83 /* MarkerGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30568A8E1C0CDA5B00471D83 /* MarkerGroup.swift */; };
 		30568A931C0CDAB500471D83 /* Marker+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30568A921C0CDAB500471D83 /* Marker+General.swift */; };
 		30568A951C0CDAF200471D83 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30568A941C0CDAF200471D83 /* Person.swift */; };
@@ -74,6 +75,7 @@
 		30367E991A9D006400B16DA1 /* OCMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMapView.h; sourceTree = "<group>"; };
 		30367E9A1A9D006400B16DA1 /* OCMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMapView.m; sourceTree = "<group>"; };
 		30367EA21A9D0AEB00B16DA1 /* InsetLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
+		305563E81C4D6E2800FAC3A2 /* PairsDataProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairsDataProtocol.swift; sourceTree = "<group>"; };
 		30568A8E1C0CDA5B00471D83 /* MarkerGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerGroup.swift; sourceTree = "<group>"; };
 		30568A921C0CDAB500471D83 /* Marker+General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Marker+General.swift"; sourceTree = "<group>"; };
 		30568A941C0CDAF200471D83 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 			children = (
 				30568A941C0CDAF200471D83 /* Person.swift */,
 				30568A971C0CDF4C00471D83 /* Vehicle.swift */,
+				305563E81C4D6E2800FAC3A2 /* PairsDataProtocol.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				30BB76841AEE9FBD00CB1EBD /* DetailViewController.swift in Sources */,
 				30BEB4671A9D1A7A005F3205 /* JGProgressHUDFadeZoomAnimation.m in Sources */,
 				30B98D491C038EBA00FBCA37 /* DetailCells.swift in Sources */,
+				305563E91C4D6E2800FAC3A2 /* PairsDataProtocol.swift in Sources */,
 				30BB76821AEE938600CB1EBD /* InfoViewController.swift in Sources */,
 				30DAA09C1AC201D7001F67D2 /* RMDateSelectionViewController.m in Sources */,
 				30BEB4681A9D1A7A005F3205 /* JGProgressHUDIndeterminateIndicatorView.m in Sources */,

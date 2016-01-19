@@ -9,9 +9,35 @@
 import Foundation
 import SwiftyJSON
 
+extension Person: PairsData {
+    
+    static func buildPersonDescriptionData(unparsedInfo: [(String, String)]) -> [(Title, Detail)] {
+        return unparsedInfo.map{ (rawTitle, rawValue) in
+            switch rawTitle {
+            case "SUG_MEORAV": return pair(forType: .SUG_MEORAV, value: Int(rawValue) ?? -1)
+            case "MIN": return pair(forType: .MIN, value: Int(rawValue) ?? -1)
+            case "SUG_REHEV_NASA_LMS": return pair(forType: .SUG_REHEV_NASA_LMS, value: Int(rawValue) ?? -1)
+            case "EMZAE_BETIHUT": return pair(forType: .SUG_MEORAV, value: Int(rawValue) ?? -1)
+            case "HUMRAT_PGIA": return pair(forType: .MIN, value: Int(rawValue) ?? -1)
+            case "SUG_NIFGA_LMS": return pair(forType: .SUG_REHEV_NASA_LMS, value: Int(rawValue) ?? -1)
+            case "PEULAT_NIFGA_LMS": return pair(forType: .SUG_MEORAV, value: Int(rawValue) ?? -1)
+            case "PAZUA_USHPAZ": return pair(forType: .MIN, value: Int(rawValue) ?? -1)
+            case "MADAD_RAFUI": return pair(forType: .SUG_REHEV_NASA_LMS, value: Int(rawValue) ?? -1)
+            case "YAAD_SHIHRUR": return pair(forType: .MIN, value: Int(rawValue) ?? -1)
+            case "SHIMUSH_BE_AVIZAREY_BETIHOT": return pair(forType: .SUG_REHEV_NASA_LMS, value: Int(rawValue) ?? -1)
+            case "PTIRA_MEUHERET": return pair(forType: .MIN, value: Int(rawValue) ?? -1)
+                
+            default: return (staticFieldNames[rawTitle]!, rawValue)
+            }
+        }.flatMap{ $0 }
+    }
+    
+}
+
 struct Person: RawInfo {
     
-    let info: [(String, String)] //(title key, content
+    var innerTitleKey: String { return "INNER_PERSON_TITLE" }
+    var info: [(String, String)] = []
     
     init(json: JSON, index: Int) {
         
@@ -33,7 +59,7 @@ struct Person: RawInfo {
         // Build the actuall info:
         // For values that are string > leave as is
         // For number > parse to the actual value
-        let finalInfo = [("INNER_PERSON_TITLE", "\(index)")] + rawInfo.map { (local, jsonKey) in
+        let finalInfo = [(innerTitleKey, "\(index)")] + rawInfo.map { (local, jsonKey) in
                 
                 let value: String
                 
@@ -50,9 +76,8 @@ struct Person: RawInfo {
         
         
         // Set the info to self
-        self.info = finalInfo
-        
-        
+        self.info = Person.buildPersonDescriptionData(finalInfo)
+
         /*
         
         "population_type":"יהודים",

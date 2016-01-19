@@ -25,11 +25,22 @@ import Foundation
  */
 enum Localization {
     
+    // Road Conditions
     case SUG_DERECH, YEHIDA, SUG_YOM, HUMRAT_TEUNA, SUG_TEUNA,
          ZURAT_DEREH, HAD_MASLUL, RAV_MASLUL, MEHIRUT_MUTERET,
          TKINUT, ROHAV, SIMUN_TIMRUR, TEURA, BAKARA, MEZEG_AVIR,
          PNE_KVISH, SUG_EZEM, MERHAK_EZEM, LO_HAZA, OFEN_HAZIYA,
          MEKOM_HAZIYA, KIVUN_HAZIYA, STATUS_IGUN
+    
+    // Vehicle Description
+    case MATZAV_REHEV, SHIYUH_REHEV_LMS, SUG_REHEV_LMS
+    
+    // Involved Person Description
+    case SUG_MEORAV, MIN, SUG_REHEV_NASA_LMS, EMZAE_BETIHUT,
+         HUMRAT_PGIA, SUG_NIFGA_LMS, PEULAT_NIFGA_LMS,
+         PAZUA_USHPAZ, MADAD_RAFUI, YAAD_SHIHRUR,
+         SHIMUSH_BE_AVIZAREY_BETIHOT, PTIRA_MEUHERET
+    
     
     subscript(val: Int) -> String? {
         let localKey = "\(self)_\(val)"
@@ -44,9 +55,11 @@ enum Localization {
     
 }
 
+
+
 var staticFieldNames = [
-    "INNER_PERSON_TITLE": "תיאור נפגע",
-    "INNER_VEHICLE_TITLE": "תיאור רכב",
+    "INNER_PERSON_TITLE": "פרטי אדם מעורב",
+    "INNER_VEHICLE_TITLE": "פרטי רכב מעורב",
     "pk_teuna_fikt": "מזהה",
     "SUG_DERECH": "סוג דרך",
     "SHEM_ZOMET": "שם צומת",
